@@ -1,0 +1,17 @@
+html,
+body {
+   @apply
+      leading-normal
+      text-base
+      text-gray-500;
+}
+
+a {
+   // @apply transition-all;
+}
+
+::selection {
+   @apply
+      text-white
+      bg-teal-500;
+}

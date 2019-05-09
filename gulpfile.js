@@ -1,44 +1,34 @@
-gulp.task(
-   'default',
-   ['watch', 'browser-sync']
-);
+/* Files */
 
-gulp.task(
-   'build',
-   ['css', 'js', 'replace', 'imagemin']
-);
+const package = require("./package.json");
+const modernizr = require("./modernizr.json");
 
+/* Dependencies */
 
-gulp.task(
-   'development',
-   function() {
-      sequence('sass', 'javascript', 'font_awesome', 'modernizr');
-   }
-);
+const gulp = require("gulp");
+const sass = require('gulp-sass');
+const postcss = require("gulp-postcss");
+const purgecss = require("gulp-purgecss");
+const tailwindcss = require("tailwindcss");
+const browserSync = require("browser-sync").create();
+const sassGlob = require('gulp-sass-glob');
 
-/* Production */
+/* Tasks */
 
-gulp.task(
-   'production',
-   function() {
-      sequence(
-         ['development'],
-         ['favicons', 'favicons_html'],
-         'images',
-         ['minify_css', 'minify_javascript'],
-         'critical_css',
-         'rev'
+gulp.task("css", () => {
+   return gulp
+      .src(package.paths.public + package.paths.assets.scss + package.files.assets.scss)
+      .pipe(sassGlob())
+      .pipe(sass())
+      .pipe(
+         postcss(
+            [
+               tailwindcss(package.files.tailwind),
+               require("autoprefixer")
+            ]
+         )
+      )
+      .pipe(
+         gulp.dest(package.paths.public + package.paths.dist)
       );
-   }
-);
-
-/* Default */
-
-gulp.task(
-   'default',
-   function() {
-      sequence('watch', 'development');
-   }
-);
-
-/* ******************************************************************************************************** */
+});
