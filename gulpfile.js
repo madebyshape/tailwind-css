@@ -9,11 +9,6 @@ gulp.task(
 );
 
 
-
-
-
-
-
 gulp.task(
    'development',
    function() {
