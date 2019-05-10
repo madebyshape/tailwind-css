@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'utilities/*'; // Needs to go above other imports, just incase these are being @apply. 
+@import 'utilities/*'; // Needs to go above other imports, just incase these are being @apply.
 
+@import 'mixins/*';
 @import 'base';
 @import 'components/*';
 @import 'blocks/*';

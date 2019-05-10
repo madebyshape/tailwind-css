@@ -1,19 +1,45 @@
+// Body
+
 html,
 body {
    @apply
       text-base
       text-gray-800;
+      
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    text-rendering: optimizeLegibility;
 }
 
+// Links
+
 a {
    @apply transition;
 }
+
+// Selection
 
 ::selection {
    @apply
       text-white
       bg-primary-500;
+}
+
+// FOUT fix
+
+.wf-loading {
+   visibility: hidden;
+}
+
+.wf-active,
+.wf-inactive {
+   visibility: visible;
+}
+
+// Transitions
+
+* {
+   @media not all and (hover: none) {
+      transition: none;
+   }
 }

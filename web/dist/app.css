@@ -5629,6 +5629,14 @@ video {
  * .sm:order-1
  */
 
+/**
+ * Use this directive to control where Tailwind injects the responsive
+ * variations of each utility.
+ *
+ * Use
+ * .sm:order-1
+ */
+
 .transition {
   transition-property: all;
   transition-duration: 500ms;
@@ -5730,10 +5738,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a {
-  transition-property: all;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+@media (hover: hover) {
+  a {
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
 }
 
 ::-moz-selection {
@@ -5746,15 +5756,13 @@ a {
   background-color: #f6ad55;
 }
 
-p {
-  color: red;
-  transition-property: all;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+.wf-loading {
+  visibility: hidden;
 }
 
-.test2 {
-  color: red;
+.wf-active,
+.wf-inactive {
+  visibility: visible;
 }
 
 @media (min-width: 640px) {

@@ -12,5 +12,5 @@ Load CSS
 Modernizer
 jQuery (Optional)
 Font face mixin
-
+descriptions in docs / files
 JS as blocks / modules
