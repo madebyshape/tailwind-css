@@ -14,6 +14,7 @@ const imagemin = require("gulp-imagemin");
 const minify = require('gulp-minify');
 const modernizr = require('gulp-modernizr');
 const purgecss = require('gulp-purgecss');
+const concat = require('gulp-concat');
 
 function browserSync(done) {
 
@@ -56,7 +57,16 @@ function css() {
 function js() {
 
    return gulp
-      .src(package.paths.assets.js + package.files.assets.js)
+      .src(
+         [
+            package.paths.assets.js + "modernizr.js",
+            package.paths.assets.js + "components/**/*.js",
+            package.paths.assets.js + package.files.assets.js
+         ]
+      )
+      .pipe(
+         concat(package.files.dist.js)
+      )
       .pipe(sourcemaps.init())
       .pipe(
          minify(

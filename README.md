@@ -14,3 +14,4 @@ jQuery (Optional)
 descriptions in docs / files
 JS as blocks / modules
 Lint files
+Cookie consent in by default
