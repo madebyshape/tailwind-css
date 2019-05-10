@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'utilities/*'; // Needs to go above other imports, just incase these are being @apply. 
+
 @import 'base';
 @import 'components/*';
-@import 'utilities/*';
 @import 'blocks/*';

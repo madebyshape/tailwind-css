@@ -8,16 +8,49 @@
 
 @responsive {
    .transition {
+      @apply transition-property;
+      @apply transition-duration;
+      @apply transition-easing;
+      &-property {
+         transition-property: all;
+         &-color {
+            transition-property: color;
+         }
+         &-background {
+            transition-property: background;
+         }
+         &-opacity {
+            transition-property: opacity;
+         }
+         &-shadow {
+            transition-property: box-shadow;
+         }
+         &-transform {
+            transition-property: transform;
+         }
+      }
       &-duration {
-         transition-duration: 0.5s;
+         transition-duration: 500ms;
+         @for $i from 1 to 10 {
+            &-#{$i}00 {
+               transition-duration: #{$i}00s;
+            }
+         }
       }
       &-easing {
          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-      &-all {
-         transition-property: all;
-         transition-duration: 0.5s;
-         transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+         &-in {
+            transition-timing-function: ease-in;
+         }
+         &-out {
+            transition-timing-function: ease-out;
+         }
+         &-in-out {
+            transition-timing-function: ease-in-out;
+         }
+         &-linear {
+            transition-timing-function: linear;
+         }
       }
    }
 }

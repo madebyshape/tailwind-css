@@ -2,16 +2,18 @@ html,
 body {
    @apply
       text-base
-      text-gray-500
-      leading-normal;
+      text-gray-800;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   text-rendering: optimizeLegibility;
 }
 
 a {
-   // @apply transition-all;
+   @apply transition;
 }
 
 ::selection {
    @apply
       text-white
-      bg-teal-500;
+      bg-primary-500;
 }
