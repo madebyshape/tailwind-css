@@ -11,6 +11,6 @@ Utilities = Extra classes that can be used as classes on the front end
 Load CSS
 Modernizer
 jQuery (Optional)
-Font face mixin
 descriptions in docs / files
 JS as blocks / modules
+Lint files

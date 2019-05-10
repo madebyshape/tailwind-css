@@ -5,7 +5,12 @@
    "main": "gulpfile.js",
    "paths": {
       "public": "web/",
-      "dist": "dist/",
+      "templates": "web/",
+      "dist": {
+         "css": "dist/css/",
+         "js": "dist/js/",
+         "images": "dist/images/"
+      },
       "assets": {
          "scss": "assets/scss/",
          "js": "assets/js/",
@@ -15,27 +20,33 @@
    },
    "files": {
       "tailwind": "./tailwind.config.js",
-      "assets": {
-         "scss": "app.scss"
-      },
       "dist": {
          "css": "app.css",
          "js": "app.js"
+      },
+      "assets": {
+         "scss": "app.scss",
+         "js": "app.js"
       }
    },
+   "imageMin": {},
    "dependencies": {},
    "devDependencies": {
       "autoprefixer": "^9.5.1",
       "browser-sync": "^2.26.5",
       "cssnano": "^4.1.10",
       "gulp": "^4.0.2",
-      "gulp-hub": "^4.2.0",
+      "gulp-imagemin": "^5.0.3",
+      "gulp-minify": "^3.1.0",
+      "gulp-modernizr": "^3.2.1",
+      "gulp-newer": "^1.4.0",
       "gulp-postcss": "^8.0.0",
       "gulp-purgecss": "^1.2.0",
       "gulp-sass": "^4.0.2",
       "gulp-sass-glob": "^1.0.9",
       "gulp-sourcemaps": "^2.6.5",
       "node-sass": "^4.12.0",
+      "purgecss": "^1.3.0",
       "tailwindcss": "^1.0.0-beta.8"
    },
    "scripts": {
