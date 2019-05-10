@@ -25,12 +25,16 @@
    },
    "dependencies": {},
    "devDependencies": {
+      "autoprefixer": "^9.5.1",
       "browser-sync": "^2.26.5",
+      "cssnano": "^4.1.10",
       "gulp": "^4.0.2",
+      "gulp-hub": "^4.2.0",
       "gulp-postcss": "^8.0.0",
       "gulp-purgecss": "^1.2.0",
       "gulp-sass": "^4.0.2",
       "gulp-sass-glob": "^1.0.9",
+      "gulp-sourcemaps": "^2.6.5",
       "node-sass": "^4.12.0",
       "tailwindcss": "^1.0.0-beta.8"
    },
