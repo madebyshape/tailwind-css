@@ -10,6 +10,9 @@ module.exports = {
       primary: {
          500: '#f6ad55'
       },
+      secondary: {
+         500: '#68d391'
+      },
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
