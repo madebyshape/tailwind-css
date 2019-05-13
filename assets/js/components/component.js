@@ -1,5 +1,8 @@
 var component = {
-   load: function() {
-      console.log('Loaded Component');
-   }
+   var: {
+      object: 'js-component'
+   },
+   scroll: function(){},
+   resize: function(){},
+   load: function(){}
 }

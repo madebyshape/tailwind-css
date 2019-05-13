@@ -8,8 +8,4 @@ Utilities = Extra classes that can be used as classes on the front end
 
 ## Roadmap
 
-Load CSS
 descriptions in docs / files
-JS as blocks / modules
-Lint files
-Cookie consent in by default

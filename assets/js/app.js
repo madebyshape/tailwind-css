@@ -20,7 +20,6 @@ const state = {
 $(window)
 	.ready(
 		function(){
-			console.load();
 			component.load();
 		}
 	);
