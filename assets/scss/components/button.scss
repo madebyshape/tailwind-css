@@ -1,2 +1,14 @@
-.button {   
+.button {
+   @apply
+      transition
+      bg-primary-500
+      text-white
+      font-semibold
+      py-3
+      px-6
+      rounded;
+   @include hover{
+      @apply
+         bg-primary-600;
+   }
 }

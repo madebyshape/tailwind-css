@@ -1,2 +1,54 @@
 .form {
+   &__label {
+      @apply font-semibold;
+   }
+   &__field-container {
+      @apply relative;
+      &--select {
+         &:before {
+            @apply
+               absolute
+               mr-3
+               border-gray-700
+               border-b-2
+               border-l-2
+               right-0
+               w-10
+               h-10
+               pointer-events-none;
+            content: '';
+            top: 50%;
+            width: rem(10);
+            height: rem(10);
+            transform:
+               rotate(-45deg)
+               translateY(calc(-50% - #{rem(5)}));
+
+         }
+      }
+   }
+   &__field {
+      @apply
+         text-gray-700
+         transition
+         block
+         appearance-none
+         w-full
+         bg-white
+         border
+         border-gray-400
+         px-3
+         py-3
+         rounded
+         shadow
+         leading-tight;
+      &:focus {
+         @apply
+            outline-none
+            shadow-outline;
+      }
+      @include hover {
+         @apply border-gray-500;
+      }
+   }
 }

@@ -30,7 +30,7 @@
          }
       }
       &-duration {
-         transition-duration: 500ms;
+         transition-duration: 300ms;
          @for $i from 1 to 10 {
             &-#{$i}00 {
                transition-duration: #{$i}00s;
