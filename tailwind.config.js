@@ -15,9 +15,17 @@ module.exports = {
          500: '#38b2ac',
          600: '#319795'
       },
+      brands: {
+         facebook: '#3b5998',
+         twitter: '#55acee',
+         instagram: '#3f729b',
+         linkedin: '#0976b4',
+         youtube: '#e52d27',
+         vimeo: '#1ab7ea',
+         pinterest: '#cc2127'
+      },
 
       transparent: 'transparent',
-
       black: '#000',
       white: '#fff',
 
