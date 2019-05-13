@@ -4,18 +4,17 @@ This is a boilerplate we use internally for projects. It utilises the Tailwind C
 
 ## Contents
 
-- Installing
-- Compiling
-- Framework
-- Colours
-- CSS Blocks
-- CSS Components
-- CSS Mixins
-- CSS Utilities
-- CSS Naming
-- JS Components
-- JS Naming
-- Favicons
+- [Installing](#installing)
+- [Compiling](#compiling)
+- [Framework](#framework)
+- [Colours](#colours)
+- [CSS Blocks](#css-blocks)
+- [CSS Components](#css-components)
+- [CSS Mixins](#css-mixins)
+- [CSS Utilities](#css-utilities)
+- [JS Components](#js-components)
+- [JS Naming](#js-naming)
+- [Favicons](#favicons)
 
 ### Installing
 
@@ -70,7 +69,11 @@ Font Face | `font-face($family, $filename, $weight, $style)` | Allows use of cus
 Hover | `hover()` | Used to detect if a browser supports `:hover`
 REM | `rem($size)` | Converts pixels (px) to REM values
 
+### CSS Utilities
+
 ### JS Components
+
+### JS Naming
 
 ### Favicons
 
