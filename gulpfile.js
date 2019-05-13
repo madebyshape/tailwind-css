@@ -11,11 +11,13 @@ const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const newer = require("gulp-newer");
 const imagemin = require("gulp-imagemin");
-const minify = require('gulp-minify');
-const modernizr = require('gulp-modernizr');
-const purgecss = require('gulp-purgecss');
-const concat = require('gulp-concat');
-const favicons = require('favicons').stream;
+const minify = require("gulp-minify");
+const modernizr = require("gulp-modernizr");
+const purgecss = require("gulp-purgecss");
+const concat = require("gulp-concat");
+const favicons = require("favicons").stream;
+const rev = require("gulp-rev");
+const revDel = require("rev-del");
 
 function browserSync(done) {
 
@@ -73,7 +75,7 @@ function js() {
          minify(
             {
                ext:{
-                  min:'.js'
+                  min:".js"
                },
                noSource: true
             }
@@ -112,7 +114,7 @@ function images() {
 function favicon() {
 
    return gulp
-      .src(package.paths.assets.images + 'favicon.jpg')
+      .src(package.paths.assets.images + "favicon.jpg")
       .pipe(
          favicons({
             appName: package.name,
@@ -144,10 +146,6 @@ function favicon() {
 
 }
 
-function rev() {
-   // @TODO
-}
-
 function purgeCss() {
 
    class TailwindExtractor {
@@ -174,14 +172,44 @@ function purgeCss() {
 
 }
 
-function criticalCss() {
+function criticalCss(done) {
    // @TODO
+   done();
+}
+
+function revCssJs(done) {
+
+   return gulp
+      .src(
+         [
+            package.paths.public + package.paths.dist.css + package.files.dist.css,
+            package.paths.public + package.paths.dist.js + package.files.dist.js
+         ],
+         {
+            base: package.paths.public + package.paths.dist.base
+         }
+      )
+      .pipe(rev())
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.base))
+      .pipe(rev.manifest(
+         {
+            base: "./"
+         }
+      ))
+      .pipe(revDel(
+         {
+            oldManifest: "./rev-manifest.json",
+            dest: package.paths.public + package.paths.dist.base
+         }
+      ))
+      .pipe(gulp.dest("./"));
+
 }
 
 function browserFeatures() {
 
    return gulp
-      .src(package.paths.assets.js + '**/*')
+      .src(package.paths.assets.js + "**/*")
       .pipe(modernizr())
       .pipe(gulp.dest(package.paths.assets.js))
 
@@ -210,11 +238,18 @@ exports.css = css;
 exports.js = js;
 exports.images = images;
 exports.favicon = favicon;
-exports.rev = rev;
 exports.purgeCss = purgeCss;
 exports.criticalCss = criticalCss;
+exports.revCssJs = revCssJs;
 exports.browserFeatures = browserFeatures;
 exports.watch = watch;
 
 exports.dev = gulp.series(browserFeatures, css, js, images, watch, browserSync);
-exports.production = gulp.parallel(browserFeatures, css, js, purgeCss, criticalCss, rev, favicon, images);
+exports.production = gulp.series(
+   gulp.parallel(browserFeatures, css, js),
+   purgeCss,
+   criticalCss,
+   revCssJs,
+   favicon,
+   images
+);
