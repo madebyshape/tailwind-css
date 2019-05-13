@@ -15,7 +15,7 @@ node_modules
 
 # Public Assets
 
-web/dist
+dist
 
 # OS X Files
 
