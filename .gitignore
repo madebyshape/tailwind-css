@@ -13,6 +13,10 @@ node_modules
 
 *.js.map
 
+# Public Assets
+
+web/dist
+
 # OS X Files
 
 .DS_Store

@@ -15,6 +15,7 @@ const minify = require('gulp-minify');
 const modernizr = require('gulp-modernizr');
 const purgecss = require('gulp-purgecss');
 const concat = require('gulp-concat');
+const favicons = require('favicons').stream;
 
 function browserSync(done) {
 
@@ -108,8 +109,39 @@ function images() {
 
 }
 
-function favicons() {
-   // @TODO
+function favicon() {
+
+   return gulp
+      .src(package.paths.assets.images + 'favicon.jpg')
+      .pipe(
+         favicons({
+            appName: package.name,
+            appDescription: package.description,
+            developerName: package.author,
+            developerURL: package.authorUrl,
+            background: "#FFF",
+            display: "standalone",
+            orientation: "any",
+            version: 1.0,
+            html: "favicons.html",
+            pipeHTML: true,
+            replace: true,
+            icons: {
+               android: false,
+               appleIcon: true,
+               appleStartup: false,
+               coast: true,
+               favicons: true,
+               firefox: true,
+               opengraph: false,
+               twitter: false,
+               windows: true,
+               yandex: true
+            }
+         })
+      )
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
+
 }
 
 function rev() {
@@ -177,7 +209,7 @@ exports.browserSyncReload = browserSyncReload;
 exports.css = css;
 exports.js = js;
 exports.images = images;
-exports.favicons = favicons;
+exports.favicon = favicon;
 exports.rev = rev;
 exports.purgeCss = purgeCss;
 exports.criticalCss = criticalCss;
@@ -185,4 +217,4 @@ exports.browserFeatures = browserFeatures;
 exports.watch = watch;
 
 exports.dev = gulp.series(browserFeatures, css, js, images, watch, browserSync);
-exports.production = gulp.parallel(browserFeatures, css, js, purgeCss, criticalCss, rev, favicons, images);
+exports.production = gulp.parallel(browserFeatures, css, js, purgeCss, criticalCss, rev, favicon, images);
