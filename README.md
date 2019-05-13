@@ -32,6 +32,8 @@ All assets should be placed in the root folder `assets`, seperated in to subfold
 
 Any files placed inside `assets` will be compiled, minified and optimised and then moved to the `dist` folder.
 
+NOTE: Never place files directly into the `web/dist` folder, as these can be overwritten sometimes via build commands.
+
 ### Framework
 
 We use Tailwind CSS (https://tailwindcss.com) as the core framework - Read the docs to use this framework https://tailwindcss.com/docs
@@ -72,7 +74,7 @@ REM | `rem($size)` | Converts pixels (px) to REM values
 
 ### Favicons
 
-Place a file named `favicon.png` in `assets/images` to generate a favicon. Running `gulp favicons` will generate this and put the appropriate files in the `dist/images` folder. Use `gulp images` to optimise these files.
+Place a file named `favicon.png` in `assets/images` to generate a favicon. Running `gulp favicon` will generate this and put the appropriate files in the `dist/images` folder. Use `gulp images` to optimise these files.
 
 ## Roadmap
 

@@ -126,7 +126,7 @@ function images() {
 function favicon() {
 
    return gulp
-      .src(package.paths.assets.images + "favicon.jpg")
+      .src(package.paths.assets.images + "favicon.png")
       .pipe(
          favicons({
             appName: package.name,
