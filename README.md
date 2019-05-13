@@ -9,8 +9,6 @@ Utilities = Extra classes that can be used as classes on the front end
 ## Roadmap
 
 Load CSS
-Modernizer
-jQuery (Optional)
 descriptions in docs / files
 JS as blocks / modules
 Lint files

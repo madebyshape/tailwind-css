@@ -30,7 +30,7 @@ function browserSync(done) {
 
 }
 
-function browserSyncReload() {
+function browserSyncReload(done) {
 
    browsersync.reload();
    done();
@@ -39,6 +39,14 @@ function browserSyncReload() {
 
 function css() {
 
+   const cssFiles = [
+      package.paths.assets.scss + package.files.assets.scss
+   ];
+
+   for (var i = 0; i < package.cssDependencies.length; i++) {
+      cssFiles.unshift(package.paths.dependencies + package.cssDependencies[i]);
+   }
+
    const plugins = [
       tailwindcss(package.files.tailwind),
       autoprefixer(),
@@ -46,7 +54,7 @@ function css() {
    ];
 
    return gulp
-      .src(package.paths.assets.scss + package.files.assets.scss)
+      .src(cssFiles)
       .pipe(sourcemaps.init())
       .pipe(sassglob())
       .pipe(sass())
@@ -59,14 +67,18 @@ function css() {
 
 function js() {
 
+   const jsFiles = [
+      package.paths.assets.js + "modernizr.js",
+      package.paths.assets.js + "components/**/*.js",
+      package.paths.assets.js + package.files.assets.js
+   ];
+
+   for (var i = 0; i < package.jsDependencies.length; i++) {
+      jsFiles.unshift(package.paths.dependencies + package.jsDependencies[i]);
+   }
+
    return gulp
-      .src(
-         [
-            package.paths.assets.js + "modernizr.js",
-            package.paths.assets.js + "components/**/*.js",
-            package.paths.assets.js + package.files.assets.js
-         ]
-      )
+      .src(jsFiles)
       .pipe(
          concat(package.files.dist.js)
       )
@@ -219,13 +231,23 @@ function watch(done) {
 
    gulp.watch(
       [
+         'package.json',
+         package.files.tailwind,
          package.paths.assets.scss + "**/*",
-         package.files.tailwind
       ],
       css
    );
 
-   gulp.watch(package.paths.assets.js + "**/*", js);
+   gulp.watch(
+      [
+         'package.json',
+         package.paths.assets.js + "**/*"
+      ],
+      js
+   );
+
+   gulp.watch(package.paths.templates + "**/*.{html,twig,vue}", browserSyncReload);
+
    gulp.watch(package.paths.assets.images + "**/*", images);
 
    done();
