@@ -337,7 +337,7 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
-      full: '100%',
+      full: '100%'
     },
     maxHeight: {
       full: '100%',
