@@ -10,7 +10,7 @@ This is a boilerplate we use internally for projects. It utilises the Tailwind C
 - [Colours](#colours)
 - [CSS Blocks](#css-blocks)
 - [CSS Components](#css-components)
-- [CSS Mixins](#css-mixins)
+- [CSS Helpers](#css-helpers)
 - [CSS Utilities](#css-utilities)
 - [JS Components](#js-components)
 - [JS Naming](#js-naming)
@@ -61,7 +61,7 @@ Example:
 
 ### CSS Components
 
-### CSS Mixins
+### CSS Helpers
 
 Name | Property | Description
 --- | --- | ---

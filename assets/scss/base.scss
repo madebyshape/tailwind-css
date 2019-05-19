@@ -16,6 +16,15 @@ a {
    @apply transition;
 }
 
+// Typography
+
+p {
+   @apply mb-2;
+   &:last-of-type {
+      @apply mb-0;
+   }
+}
+
 // Selection
 
 ::selection {

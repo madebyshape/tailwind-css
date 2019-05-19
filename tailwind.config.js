@@ -4,7 +4,6 @@ module.exports = {
   separator: ':',
   theme: {
     colors: {
-
       primary: {
          400: '#7f9cf5',
          500: '#667eea',
@@ -24,11 +23,9 @@ module.exports = {
          vimeo: '#1ab7ea',
          pinterest: '#cc2127'
       },
-
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
-
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
@@ -312,7 +309,7 @@ module.exports = {
       '10/12': '83.33333%',
       '11/12': '91.66667%',
       full: '100%',
-      screen: '100vw',
+      screen: '100vw'
     }),
     height: theme => ({
       auto: 'auto',

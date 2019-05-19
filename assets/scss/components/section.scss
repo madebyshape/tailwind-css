@@ -1,0 +1,21 @@
+.section {
+   @apply
+      inline-block
+      align-top
+      w-full
+      relative;
+	&__container {
+      @apply
+         relative
+         w-full
+         h-full;
+      max-width: rem(1500);
+		padding: {
+			left: 5vw;
+			right: 5vw;
+		};
+		@media (min-width: #{rem(1500)}) {
+			@apply mx-auto;
+		}
+	}
+}

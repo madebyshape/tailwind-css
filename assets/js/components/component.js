@@ -1,6 +1,6 @@
 var component = {
    var: {
-      object: 'js-component'
+      object: '.js-component'
    },
    scroll: function(){},
    resize: function(){},

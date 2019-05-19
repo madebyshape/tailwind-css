@@ -31,8 +31,7 @@
          "js": "app.js"
       }
    },
-   "cssDependencies": [
-   ],
+   "cssDependencies": [],
    "jsDependencies": [
       "fg-loadcss/dist/cssrelpreload.js",
       "jquery/dist/jquery.js"
