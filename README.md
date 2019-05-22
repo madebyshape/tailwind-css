@@ -6,6 +6,7 @@ This is a boilerplate we use internally for projects. It utilises the Tailwind C
 
 - [Installing](#installing)
 - [Compiling](#compiling)
+- [JS/CSS Dependencies](#js-css-dependencies)
 - [Framework](#framework)
 - [Colours](#colours)
 - [CSS Blocks](#css-blocks)
@@ -32,6 +33,12 @@ All assets should be placed in the root folder `assets`, seperated in to subfold
 Any files placed inside `assets` will be compiled, minified and optimised and then moved to the `dist` folder.
 
 NOTE: Never place files directly into the `web/dist` folder, as these can be overwritten sometimes via build commands.
+
+### JS/CSS Dependencies
+
+Install all plugins and library dependencies using `npm`. Use the `cssDependencies` and `jsDependencies` arrays in `package.json` to add dependency files straight from the `node_modules` folder.
+
+For example, if the JS file required for the project is located in `/node_modules/jquery/dist/jquery.js` add this to the `jsDependencies` array without the `node_modules` folder (`jquery/dist/jquery.js`) and compile.
 
 ### Framework
 
@@ -63,7 +70,7 @@ Example:
 
 ### CSS Components
 
-Components are set styles that are used for repeat elements throughout a project. They are created in separate component files in `assets/scss/components`. Try to avoid creating components where possible and use utility classes;
+CSS Components are styles that are used for repeat elements throughout a project. They are created in a separate component file in `assets/scss/components`. Try to avoid creating components where possible and use utility classes.
 
 Name | Base Class | File | Description
 --- | --- | --- | ---
@@ -73,7 +80,7 @@ Section | `.section` | `section.scss` | Used to limit the max width of a site, a
 
 ### CSS Helpers
 
-Helpers are usually SCSS mixins or functions that can be used within components or blocks. They are created in separate helper files in `assets/scss/helpers`. If a new helper is created, or a helper is modified for a project consider submitting as a pull request to be used in future projects.
+CSS Helpers are usually SCSS mixins or functions that can be used within components or blocks. They are created in separate helper files in `assets/scss/helpers`. If a new helper is created, or a helper is modified for a project consider submitting as a pull request to be used in future projects.
 
 Name | Property | File | Description
 --- | --- | --- | ---
@@ -83,7 +90,7 @@ REM | `rem($size)` | `rem.scss` | Converts pixels (px) to REM values
 
 ### CSS Utilities
 
-Utilities are extra classes that can be used alongside Tailwind CSS to enable functionality not yet enabled within this framework. As they run off Tailwind these can also be used responsively e.g. `.aspect-ratio-4/3 .sm:aspect-ratio-1/1`
+CSS Utilities are extra classes that can be used alongside Tailwind CSS to enable functionality not yet enabled within this framework. As they run off Tailwind these can also be used responsively e.g. `.aspect-ratio-4/3 .sm:aspect-ratio-1/1`
 
 Name | Classes | File | Description
 --- | --- | --- | ---
@@ -92,11 +99,26 @@ Transition | `.transition`<br/>`.transition-property`<br/>`.transition-property-
 
 ### JS Components
 
-@TODO
+JS Components are chunks of functionality that do a specific function. E.g. You could have a component for creating a slideshow which includes when the slideshow loads, when it's resized etc. They are created in a separate a component file in `assets/js/components` using the following syntax:
+
+```
+var component = {
+   var: {
+      object: '.js-component'
+   },
+   scroll: function(){},
+   resize: function(){},
+   load: function(){}
+}
+```
+
+When a component is required to be run add this to the `assets/js/app.js` file in the appropriate method (`load`, `resize`, `scroll`) by calling the correct method on the component e.g. `component.load();` or `component.resize()`.
 
 ### JS Naming
 
-@TODO
+Try to avoid linking any JS to any CSS classes or utilities to avoid any conflict.
+
+Name your JS classes the same as your components in kebab case and prefix your component classes with `.js-` so developers know this relates to a specific JS function.
 
 ### Favicons
 
