@@ -19,6 +19,8 @@ This is a boilerplate we use internally for projects. It utilises the Tailwind C
 
 ### Installing
 
+@TODO
+
 ### Compiling
 
 Use Gulp to run tasks within the project. See the `gulpfile.js` file for a list of available individual tasks. The build tasks are:
@@ -38,7 +40,7 @@ NOTE: Never place files directly into the `web/dist` folder, as these can be ove
 
 Install all plugins and library dependencies using `npm`. Use the `cssDependencies` and `jsDependencies` arrays in `package.json` to add dependency files straight from the `node_modules` folder.
 
-For example, if the JS file required for the project is located in `/node_modules/jquery/dist/jquery.js` add this to the `jsDependencies` array without the `node_modules` folder (`jquery/dist/jquery.js`) and compile.
+For example, if the JS file required for the project is located in `path/to/the/node_modules/jquery/dist/jquery.js` add this path to the `jsDependencies` array without the `node_modules` folder (`jquery/dist/jquery.js`) and compile.
 
 ### Framework
 
