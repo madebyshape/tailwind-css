@@ -1,6 +1,8 @@
 # Tailwind CSS
 
-This is a boilerplate we use internally for projects. It utilises the Tailwind CSS framework, to enable rapid development using utility / helper classes, with a mixture of BEM.
+This is a boilerplate @MadeByShape use internally for projects. 
+
+It utilises the Tailwind CSS framework, to enable rapid development using utility / helper classes, with a mixture of BEM.
 
 ## Contents
 
