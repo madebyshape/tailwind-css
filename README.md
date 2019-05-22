@@ -88,7 +88,7 @@ Utilities are extra classes that can be used alongside Tailwind CSS to enable fu
 Name | Classes | File | Description
 --- | --- | --- | ---
 Aspect Ratio | `.aspect-ratio-1/1` `.aspect-ratio-3/2` `.aspect-ratio-4/3` `.aspect-ratio-16/9` | `aspect-ratio.scss` | Adds padding to the top of an element to allow for aspect ratio of images etc. Use with an child element with `.absolute` applied.
-Transition | `.transition` `.transition-property` `.transition-property-none` `.transition-property-color` `.transition-property-background` `.transition-property-opacity` `.transition-property-shadow` `.transition-property-transform` `.transition-duration` `.transition-duration-100 to .transition-duration-1000 (In steps of 100)` `.transition-easing` `.transition-easing-in` `.transition-easing-out` `.transition-easing-in-out` `.transition-easing-linear` | `transition.scss` | Adds transition properties
+Transition | `.transition`  `.transition-property`  `.transition-property-none`  `.transition-property-color`  `.transition-property-background` `.transition-property-opacity` `.transition-property-shadow` `.transition-property-transform` `.transition-duration` `.transition-duration-100 to .transition-duration-1000 (In steps of 100)` `.transition-easing` `.transition-easing-in` `.transition-easing-out` `.transition-easing-in-out` `.transition-easing-linear` | `transition.scss` | Adds transition properties
 
 ### JS Components
 
