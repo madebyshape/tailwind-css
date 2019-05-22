@@ -1,8 +1,8 @@
 # Tailwind CSS
 
-This is a boilerplate @MadeByShape use internally for projects. 
+This is a boilerplate [MadeByShape](https://madebyshape.co.uk) use internally for projects. 
 
-It utilises the Tailwind CSS framework, to enable rapid development using utility / helper classes, with a mixture of BEM.
+It utilises the [Tailwind CSS] (https://tailwindcss.com) framework, to enable rapid development using utility / helper classes, with a mixture of BEM.
 
 ## Contents
 
@@ -46,7 +46,7 @@ For example, if the JS file required for the project is located in `path/to/the/
 
 ### Framework
 
-We use Tailwind CSS (https://tailwindcss.com) as the core framework - Read the docs to use this framework https://tailwindcss.com/docs
+[Tailwind CSS] (https://tailwindcss.com) is used as the core framework - Read the docs to use this framework https://tailwindcss.com/docs
 
 Edit the `tailwind.config.js` whenever you need to modify / add new CSS utility classes.
 
