@@ -1,6 +1,6 @@
 # Tailwind CSS
 
-This is a boilerplate [MadeByShape](https://madebyshape.co.uk) use internally for projects. 
+This is a boilerplate [MadeByShape](https://madebyshape.co.uk) use internally for projects.
 
 It utilises the [Tailwind CSS] (https://tailwindcss.com) framework, to enable rapid development using utility / helper classes, with a mixture of BEM.
 
@@ -129,6 +129,3 @@ Name your JS classes the same as your components in kebab case and prefix your c
 Place a file named `favicon.png` in `assets/images` to generate a favicon. Running `gulp favicon` will generate this and put the appropriate files in the `dist/images` folder. Use `gulp images` to optimise these files.
 
 ## Roadmap
-
-- Descriptions in docs / files
-- Errors in gulp
