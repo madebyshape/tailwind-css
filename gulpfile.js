@@ -18,6 +18,8 @@ const concat = require("gulp-concat");
 const favicons = require("favicons").stream;
 const rev = require("gulp-rev");
 const revDel = require("rev-del");
+const plumber = require('gulp-plumber');
+const notify = require("gulp-notify");
 
 function browserSync(done) {
 
@@ -55,12 +57,14 @@ function css() {
 
    return gulp
       .src(cssFiles)
+      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(sourcemaps.init())
       .pipe(sassglob())
       .pipe(sass())
       .pipe(postcss(plugins))
       .pipe(sourcemaps.write("/"))
       .pipe(gulp.dest(package.paths.public + package.paths.dist.css))
+      .pipe(notify("Compiled CSS"))
       .pipe(browsersync.stream());
 
 }
@@ -79,6 +83,7 @@ function js() {
 
    return gulp
       .src(jsFiles)
+      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          concat(package.files.dist.js)
       )
@@ -95,6 +100,7 @@ function js() {
       )
       .pipe(sourcemaps.write("/"))
       .pipe(gulp.dest(package.paths.public + package.paths.dist.js))
+      .pipe(notify("Compiled JS"))
       .pipe(browsersync.stream());
 }
 
@@ -102,6 +108,7 @@ function images() {
 
    return gulp
       .src(package.paths.assets.images + "**/*")
+      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(newer(package.paths.public + package.paths.dist.images))
       .pipe(
          imagemin(
@@ -119,7 +126,8 @@ function images() {
             { verbose: true }
          )
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.images))
+      .pipe(notify("Images Optimised"));
 
 }
 
@@ -127,6 +135,7 @@ function favicon() {
 
    return gulp
       .src(package.paths.assets.images + "favicon.png")
+      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          favicons({
             appName: package.name,
@@ -154,7 +163,8 @@ function favicon() {
             }
          })
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.images))
+      .pipe(notify("Favicons Generated"));
 
 }
 
@@ -168,6 +178,7 @@ function purgeCss() {
 
    return gulp
       .src(package.paths.public + package.paths.dist.css + package.files.dist.css)
+      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          purgecss({
             content: [package.paths.templates + "**/*.{html,twig,vue}"],
@@ -180,7 +191,8 @@ function purgeCss() {
             ]
          })
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.css));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.css))
+      .pipe(notify("Purged CSS"));
 
 }
 
@@ -214,7 +226,8 @@ function revCssJs(done) {
             dest: package.paths.public + package.paths.dist.base
          }
       ))
-      .pipe(gulp.dest("./"));
+      .pipe(gulp.dest("./"))
+      .pipe(notify("Revved CSS / JS"));
 
 }
 
@@ -224,6 +237,7 @@ function browserFeatures() {
       .src(package.paths.assets.js + "**/*")
       .pipe(modernizr())
       .pipe(gulp.dest(package.paths.assets.js))
+      .pipe(notify("Determined Browser Features"));
 
 }
 
