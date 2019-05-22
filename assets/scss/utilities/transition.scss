@@ -13,6 +13,9 @@
       @apply transition-easing;
       &-property {
          transition-property: all;
+         &-none {
+            transition-property: none;
+         }
          &-color {
             transition-property: color;
          }

@@ -9,12 +9,12 @@
          relative
          w-full
          h-full;
-      max-width: rem(1500);
+      max-width: rem(1800);
 		padding: {
 			left: 5vw;
 			right: 5vw;
 		};
-		@media (min-width: #{rem(1500)}) {
+		@media (min-width: #{rem(1800)}) {
 			@apply mx-auto;
 		}
 	}

@@ -41,6 +41,8 @@ Edit the `tailwind.config.js` whenever you need to modify / add new CSS utility 
 
 Use the `@apply` in custom CSS components where possible.
 
+For a grid, use Flex box mixed with width utilities as specified in the Tailwind CSS docs (https://tailwindcss.com/components/grids)
+
 ### Colours
 
 Although we're English, use the word `color` where possible (Over `colour`).
@@ -61,19 +63,32 @@ Example:
 
 ### CSS Components
 
-@TODO
+Components are set styles that are used for repeat elements throughout a project. They are created in separate component files in `assets/scss/components`. Try to avoid creating components where possible and use utility classes;
+
+Name | Base Class | File | Description
+--- | --- | --- | ---
+Button | `.button` | `button.scss` | Applies bases styles for buttons such as hovers and transition.
+Form | `.form` | `form.scss` | Applies base styles for form elements (Fields, Labels etc)
+Section | `.section` | `section.scss` | Used to limit the max width of a site, and adds a site gutter.
 
 ### CSS Helpers
 
-Name | Property | Description
---- | --- | ---
-Font Face | `font-face($family, $filename, $weight, $style)` | Allows use of custom fonts within CSS. Ideally place this within `base.scss` when being used.
-Hover | `hover()` | Used to detect if a browser supports `:hover`
-REM | `rem($size)` | Converts pixels (px) to REM values
+Helpers are usually SCSS mixins or functions that can be used within components or blocks. They are created in separate helper files in `assets/scss/helpers`. If a new helper is created, or a helper is modified for a project consider submitting as a pull request to be used in future projects.
+
+Name | Property | File | Description
+--- | --- | --- | ---
+Font Face | `font-face($family, $filename, $weight, $style)` | `font-face.scss` | Allows use of custom fonts within CSS. Ideally place this within `base.scss` when being used.
+Hover | `hover()` | `hover.scss` | Used to detect if a browser supports `:hover`
+REM | `rem($size)` | `rem.scss` | Converts pixels (px) to REM values
 
 ### CSS Utilities
 
-@TODO
+Utilities are extra classes that can be used alongside Tailwind CSS to enable functionality not yet enabled within this framework. As they run off Tailwind these can also be used responsively e.g. `.aspect-ratio-4/3 .sm:aspect-ratio-1/1`
+
+Name | Classes | File | Description
+--- | --- | --- | ---
+Aspect Ratio | `.aspect-ratio-1/1` `.aspect-ratio-3/2` `.aspect-ratio-4/3` `.aspect-ratio-16/9` | `aspect-ratio.scss` | Adds padding to the top of an element to allow for aspect ratio of images etc. Use with an child element with `.absolute` applied.
+Transition | `.transition` `.transition-property` `.transition-property-none` `.transition-property-color` `.transition-property-background` `.transition-property-opacity` `.transition-property-shadow` `.transition-property-transform` `.transition-duration` `.transition-duration-100 to .transition-duration-1000 (In steps of 100)` `.transition-easing` `.transition-easing-in` `.transition-easing-out` `.transition-easing-in-out` `.transition-easing-linear` | `transition.scss` | Adds transition properties
 
 ### JS Components
 
