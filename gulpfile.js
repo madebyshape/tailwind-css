@@ -58,9 +58,7 @@ function css() {
    return gulp
       .src(cssFiles)
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-      .pipe(
-         concat(package.files.dist.css)
-      )
+      .pipe(concat(package.files.dist.css))
       .pipe(sourcemaps.init())
       .pipe(sassglob())
       .pipe(sass())
@@ -89,9 +87,7 @@ function js() {
    return gulp
       .src(jsFiles)
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-      .pipe(
-         concat(package.files.dist.js)
-      )
+      .pipe(concat(package.files.dist.js))
       .pipe(sourcemaps.init())
       .pipe(
          minify(
