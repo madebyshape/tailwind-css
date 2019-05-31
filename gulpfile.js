@@ -20,6 +20,7 @@ const rev = require("gulp-rev");
 const revDel = require("rev-del");
 const plumber = require('gulp-plumber');
 const notify = require("gulp-notify");
+const del = require('del');
 
 function browserSync(done) {
 
@@ -113,6 +114,10 @@ function js() {
 }
 
 function images() {
+
+   del([
+      package.paths.public + package.paths.dist.images + "**/*"
+   ]);
 
    return gulp
       .src(package.paths.assets.images + "**/*")
