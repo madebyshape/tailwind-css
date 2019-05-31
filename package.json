@@ -33,8 +33,8 @@
    },
    "cssDependencies": [],
    "jsDependencies": [
-      "fg-loadcss/dist/cssrelpreload.js",
-      "jquery/dist/jquery.js"
+      "jquery/dist/jquery.js",
+      "fg-loadcss/dist/cssrelpreload.js"
    ],
    "devDependencies": {
       "autoprefixer": "^9.5.1",

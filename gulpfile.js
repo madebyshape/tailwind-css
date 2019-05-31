@@ -58,6 +58,9 @@ function css() {
    return gulp
       .src(cssFiles)
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(
+         concat(package.files.dist.css)
+      )
       .pipe(sourcemaps.init())
       .pipe(sassglob())
       .pipe(sass())
@@ -71,14 +74,16 @@ function css() {
 
 function js() {
 
+   const jsDependencies = package.jsDependencies.reverse();
+
    const jsFiles = [
       package.paths.assets.js + "modernizr.js",
       package.paths.assets.js + "components/**/*.js",
       package.paths.assets.js + package.files.assets.js
    ];
 
-   for (var i = 0; i < package.jsDependencies.length; i++) {
-      jsFiles.unshift(package.paths.dependencies + package.jsDependencies[i]);
+   for (var i = 0; i < jsDependencies.length; i++) {
+      jsFiles.unshift(package.paths.dependencies + jsDependencies[i]);
    }
 
    return gulp
