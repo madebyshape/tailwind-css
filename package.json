@@ -4,7 +4,7 @@
    "description": "",
    "main": "gulpfile.js",
    "env": {
-      "local": "http://tailwind.local/",
+      "local": "",
       "critical": ""
    },
    "paths": {
