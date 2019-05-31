@@ -72,13 +72,13 @@
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/madebyshape/tailwind.git"
+      "url": "git+https://github.com/madebyshape/tailwind-css.git"
    },
    "author": "Jason Mayo (@bymayo)",
    "authorUrl": "https://madebyshape.co.uk",
    "license": "ISC",
    "bugs": {
-      "url": "https://github.com/madebyshape/tailwind/issues"
+      "url": "https://github.com/madebyshape/tailwind-css/issues"
    },
-   "homepage": "https://github.com/madebyshape/tailwind#readme"
+   "homepage": "https://github.com/madebyshape/tailwind-css#readme"
 }
