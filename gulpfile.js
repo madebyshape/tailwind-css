@@ -23,11 +23,18 @@ const notify = require("gulp-notify");
 
 function browserSync(done) {
 
-   browsersync.init({
-      server: {
-         baseDir: package.paths.public
-      }
-   });
+   if (package.env.local === '') {
+      browsersync.init({
+         server: {
+            baseDir: package.paths.public
+         }
+      });
+   }
+   else {
+      browsersync.init({
+         proxy: package.env.local
+      });
+   }
    done();
 
 }

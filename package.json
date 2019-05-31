@@ -3,6 +3,10 @@
    "version": "1.0.0",
    "description": "",
    "main": "gulpfile.js",
+   "env": {
+      "local": "http://tailwind.local/",
+      "critical": ""
+   },
    "paths": {
       "dependencies": "node_modules/",
       "public": "web/",
