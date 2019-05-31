@@ -13,10 +13,6 @@ node_modules
 
 *.js.map
 
-# Public Assets
-
-dist
-
 # OS X Files
 
 .DS_Store
