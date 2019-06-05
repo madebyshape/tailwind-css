@@ -40,6 +40,15 @@
             }
          }
       }
+      &-delay {
+         transition-delay: 300ms;
+         &-0 { transition-delay: 0s; }
+         @for $i from 1 to 10 {
+            &-#{$i}00 {
+               transition-delay: #{$i}00s;
+            }
+         }
+      }
       &-easing {
          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
          &-in {
