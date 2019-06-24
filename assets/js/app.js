@@ -3,13 +3,13 @@
 */
 
 const state = {
-	hidden: 'hidden',
-	visible: 'visible',
-	selected: 'selected',
-	active: 'active',
-	removed: 'removed',
-	processing: 'processing',
-	loading: 'loading'
+	hidden: '-hidden',
+	visible: '-visible',
+	selected: '-selected',
+	active: '-active',
+	removed: '-removed',
+	processing: '-processing',
+	loading: '-loading'
 }
 
 /*
@@ -20,7 +20,7 @@ const state = {
 $(window)
 	.ready(
 		function(){
-			component.load();
+			component.init();
 		}
 	);
 

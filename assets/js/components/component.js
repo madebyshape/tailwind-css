@@ -4,5 +4,5 @@ var component = {
    },
    scroll: function(){},
    resize: function(){},
-   load: function(){}
+   init: function(){}
 }
