@@ -1,8 +1,8 @@
-.form {
+.field {
    &__label {
       @apply font-semibold;
    }
-   &__field-container {
+   &__container {
       @apply relative;
       &--select {
          &:before {
