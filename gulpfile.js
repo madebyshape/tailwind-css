@@ -21,6 +21,7 @@ const revDel = require("rev-del");
 const plumber = require('gulp-plumber');
 const notify = require("gulp-notify");
 const del = require('del');
+const critical = require('critical');
 
 function browserSync(done) {
 
@@ -213,9 +214,67 @@ function purgeCss() {
 
 }
 
+function doSynchronousLoop(data, processData, done) {
+   if (data.length > 0) {
+      const loop = (data, i, processData, done) => {
+         processData(data[i], i, () => {
+            if (++i < data.length) {
+               loop(data, i, processData, done);
+            } else {
+               done();
+            }
+         });
+      };
+      loop(data, 0, processData, done);
+   } else {
+      done();
+   }
+}
+
+function processCriticalCss(element, i, callback) {
+
+   const criticalSrc = package.urls.critical + element.url;
+   const criticalDest = package.paths.templates + element.template + '_critical.min.css';
+
+   critical
+      .generate({
+            src: package.critical.target + element.url,
+            dest: package.critical.output + element.template + '-critical.css',
+            inline: false,
+            ignore: [],
+            base: package.base,
+            pathPrefix: '/',
+            css: [package.output.css],
+            width: 1400,
+            height: 900,
+            minify: true,
+            timeout: 60000
+         },
+         (err, output) => {
+            if (err) {
+               notify({
+                  message: 'Error Critical CSS'
+               })
+            }
+            callback();
+         }
+      );
+
+}
+
 function criticalCss(done) {
-   // @TODO
-   done();
+
+   doSynchronousLoop(
+      package.critical.urls,
+      processCriticalCSS,
+      () => {
+         callback();
+         notify({
+            message: 'Generated Critical CSS'
+         })
+      }
+   );
+
 }
 
 function revCssJs(done) {

@@ -4,8 +4,7 @@
    "description": "",
    "main": "gulpfile.js",
    "env": {
-      "local": "",
-      "critical": ""
+      "local": "http://tailwind.local/"
    },
    "paths": {
       "dependencies": "node_modules/",
@@ -35,6 +34,16 @@
          "js": "app.js"
       }
    },
+   "critical": {
+      "url": "http://tailwind.local/",
+      "elements": [
+         {
+            "uri": "",
+            "slug": "",
+            "path": ""
+         }
+      ]
+   },
    "cssDependencies": [],
    "jsDependencies": [
       "jquery/dist/jquery.js",
@@ -43,6 +52,7 @@
    "devDependencies": {
       "autoprefixer": "^9.5.1",
       "browser-sync": "^2.26.5",
+      "critical": "^1.3.4",
       "cssnano": "^4.1.10",
       "del": "^4.1.1",
       "favicons": "^5.4.1",
