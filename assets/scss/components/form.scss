@@ -1,6 +1,11 @@
 .field {
    &__label {
       @apply font-semibold;
+      &--required {
+         @apply 
+            text-red-500
+            ml-1;
+      }
    }
    &__container {
       @apply relative;
