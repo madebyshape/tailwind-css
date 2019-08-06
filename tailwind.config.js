@@ -49,7 +49,7 @@ module.exports = {
         '6xl': '4rem' // 64
       },
       fontFamily: {
-        "sans-primary": [
+        'sans-primary': [
           'Roboto',
           ...defaultTheme.fontFamily.sans
         ],
