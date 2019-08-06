@@ -10,9 +10,9 @@ It utilises the [Tailwind CSS] (https://tailwindcss.com) framework, to enable ra
 - [Compiling](#compiling)
 - [JS/CSS Dependencies](#js-css-dependencies)
 - [Framework](#framework)
+- [Framework Plugins](#framework-plugins)
 - [Colours](#colours)
 - [CSS Blocks](#css-blocks)
-- [CSS Components](#css-components)
 - [CSS Helpers](#css-helpers)
 - [CSS Utilities](#css-utilities)
 - [JS Components](#js-components)
@@ -54,6 +54,12 @@ Use the `@apply` in custom CSS components where possible.
 
 For a grid, use Flex box mixed with width utilities as specified in the Tailwind CSS docs (https://tailwindcss.com/components/grids)
 
+### Framework Plugins
+
+- Aspect Ratio (https://github.com/webdna/tailwindcss-aspect-ratio)
+- Transitions (https://github.com/benface/tailwindcss-transitions)
+- Transforms (https://github.com/benface/tailwindcss-transforms)
+
 ### Colours
 
 Although we're English, use the word `color` where possible (Over `colour`).
@@ -91,15 +97,6 @@ Name | Property | File | Description
 Font Face | `font-face($family, $filename, $weight, $style)` | `font-face.scss` | Allows use of custom fonts within CSS. Ideally place this within `base.scss` when being used.
 Hover | `hover()` | `hover.scss` | Used to detect if a browser supports `:hover`
 REM | `rem($size)` | `rem.scss` | Converts pixels (px) to REM values
-
-### CSS Utilities
-
-CSS Utilities are extra classes that can be used alongside Tailwind CSS to enable functionality not yet enabled within this framework. As they run off Tailwind these can also be used responsively e.g. `.aspect-ratio-4/3 .sm:aspect-ratio-1/1`
-
-Name | Classes | File | Description
---- | --- | --- | ---
-Aspect Ratio | `.aspect-ratio-1/1`<br/>`.aspect-ratio-3/2`<br/>`.aspect-ratio-4/3`<br/>`.aspect-ratio-16/9` | `aspect-ratio.scss` | Adds padding to the top of an element to allow for aspect ratio of images etc. Use with an child element with `.absolute` applied.
-Transition | `.transition`<br/>`.transition-property`<br/>`.transition-property-none`<br/>`.transition-property-color`<br/>`.transition-property-background`<br/>`.transition-property-opacity`<br/>`.transition-property-shadow`<br/>`.transition-property-transform`<br/>`.transition-duration` <br/>`.transition-duration-100 to .transition-duration-1000 (In steps of 100)`<br/>`.transition-easing`<br/>`.transition-easing-in`<br/>`.transition-easing-out`<br/>`.transition-easing-in-out`<br/>`.transition-easing-linear` | `transition.scss` | Adds transition properties
 
 ### JS Components
 
