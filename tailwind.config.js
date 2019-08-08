@@ -50,7 +50,6 @@ module.exports = {
       },
       fontFamily: {
         'sans-primary': [
-          'Roboto',
           ...defaultTheme.fontFamily.sans
         ],
         'serif-primary': [
