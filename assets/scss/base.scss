@@ -10,6 +10,15 @@ body {
    text-rendering: optimizeLegibility;
 }
 
+// Transition
+
+.transition {
+   @apply 
+      transition-all
+      transition-500
+      transition-ease-out;
+}
+
 // Links
 
 a {
