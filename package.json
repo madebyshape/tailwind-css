@@ -9,7 +9,7 @@
    "paths": {
       "dependencies": "node_modules/",
       "public": "web/",
-      "templates": "web/",
+      "templates": "templates/",
       "dist": {
          "base": "dist/",
          "css": "dist/css/",

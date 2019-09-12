@@ -155,35 +155,48 @@ function favicon() {
       .src(package.paths.assets.images + "favicon.png")
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
-         favicons({
-            appName: package.name,
-            appDescription: package.description,
-            developerName: package.author,
-            developerURL: package.authorUrl,
-            background: "#FFF",
-            display: "standalone",
-            orientation: "any",
-            version: 1.0,
-            html: "favicons.html",
-            pipeHTML: true,
-            replace: true,
-            icons: {
-               android: false,
-               appleIcon: true,
-               appleStartup: false,
-               coast: true,
-               favicons: true,
-               firefox: true,
-               opengraph: false,
-               twitter: false,
-               windows: true,
-               yandex: true
+         favicons(
+            {
+               appName: package.name,
+               appDescription: package.description,
+               developerName: package.author,
+               developerURL: package.authorUrl,
+               background: "#FFF",
+               display: "standalone",
+               orientation: "any",
+               version: 1.0,
+               html: "favicons.html",
+               pipeHTML: true,
+               replace: true,
+               path: '/' + package.paths.dist.images,
+               icons: {
+                  favicons: true,
+                  android: true,
+                  appleIcon: true,
+                  firefox: true,
+                  windows: true,
+                  appleStartup: false,
+                  coast: false,
+                  opengraph: false,
+                  twitter: false,
+                  yandex: false
+               }
             }
-         })
+         )
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.images))
-      .pipe(notify("Favicons Generated"));
+      .pipe(notify("Favicons Generated"))
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
 
+}
+
+function faviconHtml() {
+   return gulp
+         .src(
+            package.paths.public + package.paths.dist.images + 'favicons.html'
+         )
+         .pipe(
+            gulp.dest(package.paths.templates + '_components/')
+         );
 }
 
 function purgeCss() {
@@ -215,6 +228,7 @@ function purgeCss() {
 }
 
 function doSynchronousLoop(data, processData, done) {
+
    if (data.length > 0) {
       const loop = (data, i, processData, done) => {
          processData(data[i], i, () => {
@@ -229,22 +243,20 @@ function doSynchronousLoop(data, processData, done) {
    } else {
       done();
    }
+
 }
 
-function processCriticalCss(element, i, callback) {
-
-   const criticalSrc = package.urls.critical + element.url;
-   const criticalDest = package.paths.templates + element.template + '_critical.min.css';
+const processCriticalCSS = (element, i, callback) => {
 
    critical
       .generate({
-            src: package.critical.target + element.url,
-            dest: package.critical.output + element.template + '-critical.css',
+            src: package.critical.url + element.url,
+            dest: package.templates + element.path + element.slug + '-critical.css',
             inline: false,
             ignore: [],
-            base: package.base,
+            bbase: "./",
             pathPrefix: '/',
-            css: [package.output.css],
+            css: [package.files.dist.css],
             width: 1400,
             height: 900,
             minify: true,
@@ -265,13 +277,11 @@ function processCriticalCss(element, i, callback) {
 function criticalCss(done) {
 
    doSynchronousLoop(
-      package.critical.urls,
+      package.critical.elements,
       processCriticalCSS,
       () => {
-         callback();
-         notify({
-            message: 'Generated Critical CSS'
-         })
+         notify("Generated Critical CSS");
+         done();
       }
    );
 
@@ -362,6 +372,7 @@ exports.production = gulp.series(
    purgeCss,
    criticalCss,
    revCssJs,
+   images,
    favicon,
-   images
+   faviconHtml
 );
