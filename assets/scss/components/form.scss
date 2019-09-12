@@ -1,35 +1,10 @@
-.field {
+.form {
    &__label {
       @apply font-semibold;
       &--required {
          @apply 
             text-red-500
             ml-1;
-      }
-   }
-   &__container {
-      @apply relative;
-      &--select {
-         &:before {
-            @apply
-               absolute
-               mr-3
-               border-gray-700
-               border-b-2
-               border-l-2
-               right-0
-               w-10
-               h-10
-               pointer-events-none;
-            content: '';
-            top: 50%;
-            width: rem(10);
-            height: rem(10);
-            transform:
-               rotate(-45deg)
-               translateY(calc(-50% - #{rem(5)}));
-
-         }
       }
    }
    &__field {
@@ -55,5 +30,36 @@
       @include hover {
          @apply border-gray-500;
       }
+   }
+   &__field-container {
+      @apply relative;
+      &--select {
+         &:before {
+            @apply
+               absolute
+               mr-3
+               border-gray-700
+               border-b-2
+               border-l-2
+               right-0
+               w-3
+               h-3
+               pointer-events-none;
+            content: '';
+            top: 50%;
+            transform:
+               rotate(-45deg)
+               translateY(calc(-50% - #{rem(5)}));
+
+         }
+      }
+   }
+   &__notification {
+      @apply 
+         p-5 
+         bg-primary-100 
+         text-primary-600;
+   }
+   &__pages {
    }
 }
