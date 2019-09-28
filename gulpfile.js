@@ -152,7 +152,7 @@ function images() {
 function favicon() {
 
    return gulp
-      .src(package.paths.assets.images + "favicon.png")
+      .src(package.paths.assets.images + "favicon.{jpg,png}")
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          favicons(
@@ -207,13 +207,19 @@ function purgeCss() {
       }
    }
 
+   var whitelistPatterns = [];
+   for (i = 0; i < package.purgeCss.whitelistPatterns.length; i++) {
+      whitelistPatterns.push(new RegExp(package.purgeCss.whitelistPatterns[i], ''));
+    }
+
    return gulp
       .src(package.paths.public + package.paths.dist.css + package.files.dist.css)
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          purgecss({
             content: [package.paths.templates + "**/*.{html,twig,vue}"],
-            whitelist: [],
+            whitelist: [package.purgeCss.whitelist],
+            whitelistPatterns: whitelistPatterns,
             extractors: [
                {
                   extractor: TailwindExtractor,

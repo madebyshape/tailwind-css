@@ -44,6 +44,15 @@
          }
       ]
    },
+   "purgeCss": {
+      "whitelist": [
+         "-active"
+      ],
+      "whitelistPatterns": [
+         "-active$",
+         "aos-.*"
+      ]
+   },
    "cssDependencies": [],
    "jsDependencies": [
       "jquery/dist/jquery.js",
