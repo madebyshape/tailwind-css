@@ -1,14 +1,24 @@
 .button {
    @apply
       transition
+      inline-block
       bg-primary-500
       text-white
-      font-semibold
+      font-medium
       py-3
       px-6
       rounded;
-   @include hover{
+   @include hover {
       @apply
          bg-primary-600;
+   }
+   &:active {
+      @apply 
+         bg-primary-600;
+   }
+   &:focus {
+      @apply
+         outline-none
+         shadow-outline;
    }
 }
