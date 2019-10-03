@@ -1,11 +1,6 @@
 .form {
    &__label {
       @apply font-semibold;
-      &--required {
-         @apply 
-            text-red-500
-            ml-1;
-      }
    }
    &__field {
       @apply
