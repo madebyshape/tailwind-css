@@ -1,108 +1,110 @@
 {
-   "name": "Tailwind",
-   "version": "1.0.0",
-   "description": "",
-   "main": "gulpfile.js",
-   "env": {
-      "local": "http://tailwind-css.local/"
-   },
-   "paths": {
-      "dependencies": "node_modules/",
-      "public": "web/",
-      "templates": "templates/",
-      "dist": {
-         "base": "dist/",
-         "css": "dist/css/",
-         "js": "dist/js/",
-         "images": "dist/images/"
-      },
-      "assets": {
-         "scss": "assets/scss/",
-         "js": "assets/js/",
-         "images": "assets/images/",
-         "fonts": "assets/fonts/"
-      }
-   },
-   "files": {
-      "tailwind": "./tailwind.config.js",
-      "dist": {
-         "css": "app.css",
-         "js": "app.js"
-      },
-      "assets": {
-         "scss": "app.scss",
-         "js": "app.js"
-      }
-   },
-   "critical": {
-      "url": "http://tailwind-css.local/",
-      "elements": [
-         {
+    "name": "Tailwind",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "scripts": {
+        "dev": "gulp serve",
+        "production": "gulp production"
+    },
+    "env": {
+        "local": "http://tailwind-css.local/"
+    },
+    "paths": {
+        "dependencies": "node_modules/",
+        "public": "web/",
+        "templates": "templates/",
+        "dist": {
+            "base": "dist/",
+            "css": "dist/css/",
+            "js": "dist/js/",
+            "images": "dist/images/"
+        },
+        "assets": {
+            "scss": "assets/scss/",
+            "js": "assets/js/",
+            "images": "assets/images/",
+            "fonts": "assets/fonts/"
+        }
+    },
+    "files": {
+        "tailwind": "./tailwind.config.js",
+        "dist": {
+            "css": "app.css",
+            "js": "app.js"
+        },
+        "assets": {
+            "scss": "app.scss",
+            "js": "app.js"
+        }
+    },
+    "critical": {
+        "url": "http://tailwind-css.local/",
+        "elements": [{
             "uri": "",
             "slug": "",
             "path": ""
-         }
-      ]
-   },
-   "purgeCss": {
-      "whitelist": [
-         "-active"
-      ],
-      "whitelistPatterns": [
-         "-active$",
-         "aos-.*"
-      ]
-   },
-   "cssDependencies": [],
-   "jsDependencies": [
-      "jquery/dist/jquery.js",
-      "fg-loadcss/dist/cssrelpreload.js"
-   ],
-   "dependencies": {
-      "fg-loadcss": "^2.1.0",
-      "jquery": "^3.4.1",
-      "tailwindcss": "^1.1.0",
-      "tailwindcss-aspect-ratio": "^2.0.0",
-      "tailwindcss-transforms": "^2.2.0",
-      "tailwindcss-transitions": "^2.1.0"
-   },
-   "devDependencies": {
-      "autoprefixer": "^9.6.1",
-      "browser-sync": "^2.26.7",
-      "critical": "^1.3.6",
-      "cssnano": "^4.1.10",
-      "del": "^4.1.1",
-      "favicons": "^5.4.1",
-      "gulp": "^4.0.2",
-      "gulp-concat": "^2.6.1",
-      "gulp-imagemin": "^5.0.3",
-      "gulp-minify": "^3.1.0",
-      "gulp-modernizr": "^3.3.0",
-      "gulp-newer": "^1.4.0",
-      "gulp-notify": "^3.2.0",
-      "gulp-plumber": "^1.2.1",
-      "gulp-postcss": "^8.0.0",
-      "gulp-purgecss": "^1.2.0",
-      "gulp-rev": "^9.0.0",
-      "gulp-sass": "^4.0.2",
-      "gulp-sass-glob": "^1.1.0",
-      "gulp-sourcemaps": "^2.6.5",
-      "node-sass": "^4.12.0",
-      "purgecss": "^1.4.0",
-      "rev-del": "^2.0.0"
-   },
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/madebyshape/tailwind-css.git"
-   },
-   "author": "Jason Mayo (@bymayo)",
-   "authorUrl": "https://madebyshape.co.uk",
-   "license": "ISC",
-   "bugs": {
-      "url": "https://github.com/madebyshape/tailwind-css/issues"
-   },
-   "homepage": "https://github.com/madebyshape/tailwind-css#readme"
+        }]
+    },
+    "purgeCss": {
+        "whitelist": [
+            "-active"
+        ],
+        "whitelistPatterns": [
+            "-active$",
+            "aos-.*"
+        ]
+    },
+    "cssDependencies": [],
+    "jsDependencies": [
+        "jquery/dist/jquery.js",
+        "fg-loadcss/dist/cssrelpreload.js"
+    ],
+    "dependencies": {
+        "fg-loadcss": "^2.1.0",
+        "jquery": "^3.4.1",
+        "tailwindcss": "^1.1.0",
+        "tailwindcss-aspect-ratio": "^2.0.0",
+        "tailwindcss-transforms": "^2.2.0",
+        "tailwindcss-transitions": "^2.1.0"
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.6.1",
+        "browser-sync": "^2.26.7",
+        "critical": "^1.3.6",
+        "cssnano": "^4.1.10",
+        "del": "^4.1.1",
+        "favicons": "^5.4.1",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-imagemin": "^5.0.3",
+        "gulp-minify": "^3.1.0",
+        "gulp-modernizr": "^3.3.0",
+        "gulp-newer": "^1.4.0",
+        "gulp-notify": "^3.2.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^8.0.0",
+        "gulp-purgecss": "^1.2.0",
+        "gulp-rev": "^9.0.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sass-glob": "^1.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "node-sass": "^4.12.0",
+        "purgecss": "^1.4.0",
+        "rev-del": "^2.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/madebyshape/tailwind-css.git"
+    },
+    "author": "Jason Mayo (@bymayo)",
+    "authorUrl": "https://madebyshape.co.uk",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/madebyshape/tailwind-css/issues"
+    },
+    "homepage": "https://github.com/madebyshape/tailwind-css#readme"
 }
