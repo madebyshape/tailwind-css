@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "gulpfile.js",
-    "scripts": {
-        "dev": "gulp serve",
-        "production": "gulp production"
-    },
     "env": {
         "local": "http://tailwind-css.local/"
     },
@@ -94,7 +90,8 @@
         "rev-del": "^2.0.0"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "gulp dev",
+        "production": "gulp production"
     },
     "repository": {
         "type": "git",
