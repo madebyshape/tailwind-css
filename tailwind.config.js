@@ -58,13 +58,47 @@ module.exports = {
         'mono-primary': [
           ...defaultTheme.fontFamily.mono
         ],
-      }
+      },
+      boxShadow: {
+        outline: '0 0 0 3px rgba(102, 126, 234, 0.3)',
+        focus: '0 0 0 3px rgba(102, 126, 234, 0.3)'
+      },
+      // Plugins
+      translate: {
+        '0': '0',
+        '1/2': '50%',
+        '-1/2': '-50%',
+        'full': '100%',
+        'px': '1px',
+        '-px': '-1px',
+        '1': '0.25rem', // 4px
+        '-1': '-0.25rem', // 4px
+        '2': '0.5rem', // 8px
+        '-2': '-0.5rem' // 8px
+      },
+      aspectRatio: {
+        'square': [1, 1],
+        '16/9': [16, 9],
+        '4/3': [4, 3]
+      },
+      alphaColors: [
+        'white',
+        'black',
+        'primary.500'
+      ]
+    },
+    screens: {
+      ...defaultTheme.screens,
     }
   },
-  variants: {},
+  variants: {
+    translate: ['responsive', 'hover'],
+    alphaColors: ['hover', 'group-hover']
+  },
   plugins: [
     require('tailwindcss-transforms')({ '3d': false }),
     require('tailwindcss-aspect-ratio')(),
-    require('tailwindcss-transitions')()
+    require('tailwindcss-transitions')(),
+    require('tailwindcss-bg-alpha')()
   ]
 }
