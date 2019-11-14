@@ -9,9 +9,8 @@ body {
    @apply
       font-sans-primary
       text-base
-      text-gray-800;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+      text-gray-800
+      antialiased;
    text-rendering: optimizeLegibility;
 }
 
