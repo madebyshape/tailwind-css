@@ -18,18 +18,25 @@
          shadow
          leading-tight;
       @include hover {
-         @apply border-gray-500;
+         @apply 
+            border-gray-500;
       }
       &:focus {
          @apply
+            border-primary-500
             outline-none
             shadow-outline;
+      }
+      &::placeholder {
+         @apply
+            text-gray-500
+            opacity-100
       }
    }
    &__field-container {
       @apply relative;
       &--select {
-         &:before {
+         &:after {
             @apply
                absolute
                mr-3
@@ -37,15 +44,12 @@
                border-b-2
                border-l-2
                right-0
-               w-3
-               h-3
-               pointer-events-none;
+               w-2
+               h-2
+               pointer-events-none
+               top-1/2;
             content: '';
-            top: 50%;
-            transform:
-               rotate(-45deg)
-               translateY(calc(-50% - #{rem(5)}));
-
+            transform: rotate(-45deg) translateY(calc(-50% - #{rem(5)}));
          }
       }
    }

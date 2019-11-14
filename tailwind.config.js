@@ -37,11 +37,11 @@ module.exports = {
         }
       },
       fontSize: {
-        xs: '0.75rem', // 12
-        sm: '0.875rem', // 14
-        base: '1rem', // 16
-        lg: '1.125rem', // 18
-        xl: '1.25rem', // 20
+        'xs': '0.75rem', // 12
+        'sm': '0.875rem', // 14
+        'base': '1rem', // 16
+        'lg': '1.125rem', // 18
+        'xl': '1.25rem', // 20
         '2xl': '1.5rem', // 24
         '3xl': '1.875rem', // 30
         '4xl': '2.25rem', // 36
@@ -60,8 +60,12 @@ module.exports = {
         ],
       },
       boxShadow: {
-        outline: '0 0 0 3px rgba(102, 126, 234, 0.3)',
-        focus: '0 0 0 3px rgba(102, 126, 234, 0.3)'
+        'outline': '0 0 0 3px rgba(102, 126, 234, 0.2)',
+        'focus': '0 0 0 3px rgba(102, 126, 234, 0.2)'
+      },
+      inset: {
+        '0': 0,
+        '1/2': '50%'
       },
       // Plugins
       translate: {
