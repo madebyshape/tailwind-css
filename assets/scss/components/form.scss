@@ -17,13 +17,13 @@
          rounded
          shadow
          leading-tight;
+      @include hover {
+         @apply border-gray-500;
+      }
       &:focus {
          @apply
             outline-none
             shadow-outline;
-      }
-      @include hover {
-         @apply border-gray-500;
       }
    }
    &__field-container {
