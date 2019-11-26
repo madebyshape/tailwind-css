@@ -45,12 +45,11 @@
         ]
     },
     "purgeCss": {
-        "whitelist": [
-            "-active"
-        ],
         "whitelistPatterns": [
             "-active$",
-            "aos-.*"
+            "aos.*",
+            "choices.*",
+            "flickity.*"
         ]
     },
     "cssDependencies": [],

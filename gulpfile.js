@@ -217,9 +217,12 @@ function purgeCss() {
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(
          purgecss({
-            content: [package.paths.templates + "**/*.{html,twig,vue}"],
-            whitelist: [package.purgeCss.whitelist],
+            content: [
+               package.paths.templates + "**/*.{html,twig,vue}",
+               package.paths.public + package.paths.dist.base + "**/*.{js}"
+            ],
             whitelistPatterns: whitelistPatterns,
+            whitelistPatternsChildren: whitelistPatterns,
             extractors: [
                {
                   extractor: TailwindExtractor,
