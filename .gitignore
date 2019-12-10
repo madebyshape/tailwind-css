@@ -13,7 +13,7 @@ node_modules
 
 *.js.map
 
-# OS X Files
+# OS Files
 
 .DS_Store
 *.DS_Store
@@ -23,3 +23,34 @@ node_modules
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Craft CMS
+
+cpresources
+vendor
+.env
+*.log
+storage/*
+config/license.key
+
+# Asset Source Folders
+
+web/uploads
+public/uploads
+public_html/uploads
+
+# Log files
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
