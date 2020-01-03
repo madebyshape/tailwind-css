@@ -3,13 +3,13 @@
 */
 
 const state = {
-	hidden: '-hidden',
-	visible: '-visible',
-	selected: '-selected',
-	active: '-active',
-	removed: '-removed',
-	processing: '-processing',
-	loading: '-loading'
+	hidden: 'is-hidden',
+	visible: 'is-visible',
+	selected: 'is-selected',
+	active: 'is-active',
+	removed: 'is-removed',
+	processing: 'is-processing',
+	loading: 'is-loading'
 }
 
 /*
