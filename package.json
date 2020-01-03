@@ -46,10 +46,11 @@
     },
     "purgeCss": {
         "whitelistPatterns": [
-            "-active$",
+            "is-.*",
             "aos.*",
             "choices.*",
-            "flickity.*"
+            "flickity.*",
+            "mfp.*"
         ]
     },
     "cssDependencies": [],
