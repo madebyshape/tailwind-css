@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.7.1
+ * modernizr v3.8.0
  * Build https://modernizr.com/download?-supports-addtest-printshiv-setclasses-testprop-dontmin
  *
  * Copyright (c)
@@ -36,7 +36,7 @@
    */
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.7.1',
+    _version: '3.8.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -157,8 +157,8 @@
           if (featureNameSplit.length === 1) {
             Modernizr[featureNameSplit[0]] = result;
           } else {
-            // cast to a Boolean, if not one already
-            if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
+            // cast to a Boolean, if not one already or if it doesnt exist yet (like inputtypes)
+            if (!Modernizr[featureNameSplit[0]] || Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
               Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
             }
 
@@ -1312,12 +1312,12 @@
     var afterInit, i, propsLength, prop, before;
 
     // If we don't have a style element, that means we're running async or after
-    // the core tests, so we'll need to create our own elements to use
+    // the core tests, so we'll need to create our own elements to use.
 
-    // inside of an SVG element, in certain browsers, the `style` element is only
+    // Inside of an SVG element, in certain browsers, the `style` element is only
     // defined for valid tags. Therefore, if `modernizr` does not have one, we
     // fall back to a less used element and hope for the best.
-    // for strict XHTML browsers the hardly used samp element is used
+    // For strict XHTML browsers the hardly used samp element is used.
     var elems = ['modernizr', 'tspan', 'samp'];
     while (!mStyle.style && elems.length) {
       afterInit = true;
@@ -1424,13 +1424,13 @@
   "tags": ["css"],
   "builderAliases": ["css_supports"],
   "notes": [{
-    "name": "W3C Spec",
+    "name": "W3C Spec (The @supports rule)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#at-supports"
   },{
     "name": "Related Github Issue",
     "href": "https://github.com/Modernizr/Modernizr/issues/648"
   },{
-    "name": "W3C Spec",
+    "name": "W3C Spec (The CSSSupportsRule interface)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
   }]
 }
