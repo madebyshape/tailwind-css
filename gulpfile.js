@@ -18,14 +18,14 @@ const concat = require("gulp-concat");
 const favicons = require("favicons").stream;
 const rev = require("gulp-rev");
 const revDel = require("rev-del");
-const plumber = require('gulp-plumber');
+const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
-const del = require('del');
-const critical = require('critical');
+const del = require("del");
+const critical = require("critical");
 
 function browserSync(done) {
 
-   if (package.env.local === '') {
+   if (package.env.local === "") {
       browsersync.init({
          server: {
             baseDir: package.paths.public
@@ -168,7 +168,7 @@ function favicon() {
                html: "favicons.html",
                pipeHTML: true,
                replace: true,
-               path: '/' + package.paths.dist.images,
+               path: "/" + package.paths.dist.images,
                icons: {
                   favicons: true,
                   android: true,
@@ -192,10 +192,10 @@ function favicon() {
 function faviconHtml() {
    return gulp
          .src(
-            package.paths.public + package.paths.dist.images + 'favicons.html'
+            package.paths.public + package.paths.dist.images + "favicons.html"
          )
          .pipe(
-            gulp.dest(package.paths.templates + '_components/')
+            gulp.dest(package.paths.templates + "_components/")
          );
 }
 
@@ -209,7 +209,7 @@ function purgeCss() {
 
    var whitelistPatterns = [];
    for (i = 0; i < package.purgeCss.whitelistPatterns.length; i++) {
-      whitelistPatterns.push(new RegExp(package.purgeCss.whitelistPatterns[i], ''));
+      whitelistPatterns.push(new RegExp(package.purgeCss.whitelistPatterns[i], ""));
     }
 
    return gulp
@@ -260,11 +260,11 @@ const processCriticalCSS = (element, i, callback) => {
    critical
       .generate({
             src: package.critical.url + element.url,
-            dest: package.templates + element.path + element.slug + '-critical.css',
+            dest: package.templates + element.path + element.slug + "-critical.css",
             inline: false,
             ignore: [],
             bbase: "./",
-            pathPrefix: '/',
+            pathPrefix: "/",
             css: [package.files.dist.css],
             width: 1400,
             height: 900,
@@ -274,7 +274,7 @@ const processCriticalCSS = (element, i, callback) => {
          (err, output) => {
             if (err) {
                notify({
-                  message: 'Error Critical CSS'
+                  message: "Error Critical CSS"
                })
             }
             callback();
@@ -340,7 +340,7 @@ function watch(done) {
 
    gulp.watch(
       [
-         'package.json',
+         "package.json",
          package.files.tailwind,
          package.paths.assets.scss + "**/*",
       ],
@@ -349,7 +349,7 @@ function watch(done) {
 
    gulp.watch(
       [
-         'package.json',
+         "package.json",
          package.paths.assets.js + "**/*"
       ],
       js
