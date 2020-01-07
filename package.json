@@ -14,7 +14,8 @@
             "base": "dist/",
             "css": "dist/css/",
             "js": "dist/js/",
-            "images": "dist/images/"
+            "images": "dist/images/",
+            "favicon": "dist/images/favicon/"
         },
         "assets": {
             "scss": "assets/scss/",
@@ -64,7 +65,8 @@
         "tailwindcss": "^1.1.0",
         "tailwindcss-aspect-ratio": "^2.0.0",
         "tailwindcss-transforms": "^2.2.0",
-        "tailwindcss-transitions": "^2.1.0"
+        "tailwindcss-transitions": "^2.1.0",
+        "tailwindcss-bg-alpha": "^2.1.0"
     },
     "devDependencies": {
         "autoprefixer": "^9.6.1",
@@ -75,6 +77,7 @@
         "favicons": "^5.4.1",
         "gulp": "^4.0.2",
         "gulp-concat": "^2.6.1",
+        "gulp-dest-clean": "^0.5.0",
         "gulp-imagemin": "^5.0.3",
         "gulp-minify": "^3.1.0",
         "gulp-modernizr": "^3.3.0",
@@ -89,8 +92,7 @@
         "gulp-sourcemaps": "^2.6.5",
         "node-sass": "^4.12.0",
         "purgecss": "^1.4.0",
-        "rev-del": "^2.0.0",
-        "tailwindcss-bg-alpha": "^2.1.0"
+        "rev-del": "^2.0.0"
     },
     "scripts": {
         "dev": "gulp dev",

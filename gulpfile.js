@@ -22,6 +22,7 @@ const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
 const del = require("del");
 const critical = require("critical");
+const clean = require("gulp-dest-clean");
 
 function browserSync(done) {
 
@@ -120,13 +121,10 @@ function js() {
 
 function images() {
 
-   del([
-      package.paths.public + package.paths.dist.images + "**/*"
-   ]);
-
    return gulp
       .src(package.paths.assets.images + "**/*")
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(clean(package.paths.public + package.paths.dist.images, 'favicon/**'))
       .pipe(newer(package.paths.public + package.paths.dist.images))
       .pipe(
          imagemin(
@@ -154,6 +152,7 @@ function favicon() {
    return gulp
       .src(package.paths.assets.images + "favicon.{jpg,png}")
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(newer(package.paths.public + package.paths.dist.images + "favicon.{jpg,png}"))
       .pipe(
          favicons(
             {
@@ -168,7 +167,7 @@ function favicon() {
                html: "favicons.html",
                pipeHTML: true,
                replace: true,
-               path: "/" + package.paths.dist.images,
+               path: "/" + package.paths.dist.favicon,
                icons: {
                   favicons: true,
                   android: true,
@@ -185,14 +184,14 @@ function favicon() {
          )
       )
       .pipe(notify("Favicons Generated"))
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.favicon));
 
 }
 
 function faviconHtml() {
    return gulp
          .src(
-            package.paths.public + package.paths.dist.images + "favicons.html"
+            package.paths.public + package.paths.dist.favicon + "favicons.html"
          )
          .pipe(
             gulp.dest(package.paths.templates + "_components/")
@@ -369,6 +368,7 @@ exports.css = css;
 exports.js = js;
 exports.images = images;
 exports.favicon = favicon;
+exports.faviconHtml = faviconHtml;
 exports.purgeCss = purgeCss;
 exports.criticalCss = criticalCss;
 exports.revCssJs = revCssJs;
@@ -381,7 +381,7 @@ exports.production = gulp.series(
    purgeCss,
    criticalCss,
    revCssJs,
-   images,
    favicon,
-   faviconHtml
+   faviconHtml,
+   images
 );
