@@ -67,7 +67,7 @@ function css() {
 
    return gulp
       .src(cssFiles)
-      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(plumber({ errorHandler: notify.onError("Error [css]: <%= error.message %>") }))
       .pipe(concat(package.files.dist.css))
       .pipe(sourcemaps.init())
       .pipe(sassglob())
@@ -75,7 +75,6 @@ function css() {
       .pipe(postcss(plugins))
       .pipe(sourcemaps.write("/"))
       .pipe(gulp.dest(package.paths.public + package.paths.dist.css))
-      .pipe(notify("Compiled CSS"))
       .pipe(browsersync.stream());
 
 }
@@ -100,7 +99,7 @@ function js() {
 
    return gulp
       .src(jsArray)
-      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(plumber({ errorHandler: notify.onError("Error [js]: <%= error.message %>") }))
       .pipe(concat(package.files.dist.js))
       .pipe(sourcemaps.init())
       .pipe(
@@ -115,7 +114,6 @@ function js() {
       )
       .pipe(sourcemaps.write("/"))
       .pipe(gulp.dest(package.paths.public + package.paths.dist.js))
-      .pipe(notify("Compiled JS"))
       .pipe(browsersync.stream());
 }
 
@@ -123,7 +121,7 @@ function images() {
 
    return gulp
       .src(package.paths.assets.images + "**/*")
-      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(plumber({ errorHandler: notify.onError("Error [images]: <%= error.message %>") }))
       .pipe(clean(package.paths.public + package.paths.dist.images, 'favicon/**'))
       .pipe(newer(package.paths.public + package.paths.dist.images))
       .pipe(
@@ -142,8 +140,7 @@ function images() {
             { verbose: true }
          )
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.images))
-      .pipe(notify("Images Optimised"));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.images));
 
 }
 
@@ -151,7 +148,7 @@ function favicon() {
 
    return gulp
       .src(package.paths.assets.images + "favicon.{jpg,png}")
-      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(plumber({ errorHandler: notify.onError("Error [favicon]: <%= error.message %>") }))
       .pipe(newer(package.paths.public + package.paths.dist.images + "favicon.{jpg,png}"))
       .pipe(
          favicons(
@@ -183,7 +180,6 @@ function favicon() {
             }
          )
       )
-      .pipe(notify("Favicons Generated"))
       .pipe(gulp.dest(package.paths.public + package.paths.dist.favicon));
 
 }
@@ -213,7 +209,7 @@ function purgeCss() {
 
    return gulp
       .src(package.paths.public + package.paths.dist.css + package.files.dist.css)
-      .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+      .pipe(plumber({ errorHandler: notify.onError("Error [purgeCss]: <%= error.message %>") }))
       .pipe(
          purgecss({
             content: [
@@ -230,8 +226,7 @@ function purgeCss() {
             ]
          })
       )
-      .pipe(gulp.dest(package.paths.public + package.paths.dist.css))
-      .pipe(notify("Purged CSS"));
+      .pipe(gulp.dest(package.paths.public + package.paths.dist.css));
 
 }
 
@@ -273,7 +268,7 @@ const processCriticalCSS = (element, i, callback) => {
          (err, output) => {
             if (err) {
                notify({
-                  message: "Error Critical CSS"
+                  message: "Error [processCriticalCSS]: " + err
                })
             }
             callback();
@@ -288,7 +283,6 @@ function criticalCss(done) {
       package.critical.elements,
       processCriticalCSS,
       () => {
-         notify("Generated Critical CSS");
          done();
       }
    );
@@ -320,8 +314,7 @@ function revCssJs(done) {
             dest: package.paths.public + package.paths.dist.base
          }
       ))
-      .pipe(gulp.dest("./"))
-      .pipe(notify("Revved CSS / JS"));
+      .pipe(gulp.dest("./"));
 
 }
 
@@ -330,8 +323,7 @@ function browserFeatures() {
    return gulp
       .src(package.paths.assets.js + "**/*")
       .pipe(modernizr())
-      .pipe(gulp.dest(package.paths.assets.js))
-      .pipe(notify("Determined Browser Features"));
+      .pipe(gulp.dest(package.paths.assets.js));
 
 }
 
