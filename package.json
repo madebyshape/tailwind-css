@@ -4,7 +4,7 @@
     "description": "",
     "main": "gulpfile.js",
     "env": {
-        "local": "http://tailwind-css.local/"
+        "local": ""
     },
     "paths": {
         "dependencies": "node_modules/",
@@ -57,9 +57,11 @@
     "cssDependencies": [],
     "jsDependencies": [
         "jquery/dist/jquery.js",
-        "fg-loadcss/dist/cssrelpreload.js"
+        "fg-loadcss/dist/cssrelpreload.js",
+        "alpinejs/dist/alpine.js"
     ],
     "dependencies": {
+        "alpinejs": "^1.9.2",
         "fg-loadcss": "^2.1.0",
         "jquery": "^3.4.1",
         "tailwindcss": "^1.1.4",

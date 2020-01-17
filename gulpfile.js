@@ -346,6 +346,8 @@ function watch(done) {
       js
    );
 
+   gulp.watch(package.paths.public + "**/*", browserSyncReload);
+
    gulp.watch(package.paths.templates + "**/*.{html,twig,vue}", browserSyncReload);
 
    gulp.watch(package.paths.assets.images + "**/*", images);
