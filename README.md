@@ -86,7 +86,12 @@ Name | Base Class | File | Description
 --- | --- | --- | ---
 Button | `.button` | `button.scss` | Applies bases styles for buttons such as hovers and transition.
 Form | `.form` | `form.scss` | Applies base styles for form elements (Fields, Labels etc)
+Heading | `.heading` | `headings.scss` | Used to apply base styles to headings (Especially used with `.rich-text`).
+Link | `.link` | `links.scss` | Used to apply base styles to links.
+Rich Text | `.rich-text` | `rich-text.scss` | Applies base styles to tags used inside redactor (Rich text) fields.
 Section | `.section` | `section.scss` | Used to limit the max width of a site, and adds a site gutter.
+Transition | `.transition` | `transitions.scss` | Applies transitions classes to be used on links etc.
+
 
 ### CSS Helpers
 

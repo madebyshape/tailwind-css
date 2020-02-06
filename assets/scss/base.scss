@@ -14,19 +14,10 @@ body {
    text-rendering: optimizeLegibility;
 }
 
-// Transition
-
-.transition {
-   @apply 
-      transition-all
-      transition-250
-      transition-ease-out;
-}
-
 // Links
 
 a {
-   @apply transition;
+   @apply transition--default;
 }
 
 // Typography

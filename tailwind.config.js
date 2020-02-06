@@ -68,18 +68,18 @@ module.exports = {
         '1/2': '50%'
       },
       // Plugins
-      translate: {
-        '0': '0',
-        '1/2': '50%',
-        '-1/2': '-50%',
-        'full': '100%',
-        'px': '1px',
-        '-px': '-1px',
-        '1': '0.25rem', // 4px
-        '-1': '-0.25rem', // 4px
-        '2': '0.5rem', // 8px
-        '-2': '-0.5rem' // 8px
-      },
+      // translate: {
+      //   '0': '0',
+      //   '1/2': '50%',
+      //   '-1/2': '-50%',
+      //   'full': '100%',
+      //   'px': '1px',
+      //   '-px': '-1px',
+      //   '1': '0.25rem', // 4px
+      //   '-1': '-0.25rem', // 4px
+      //   '2': '0.5rem', // 8px
+      //   '-2': '-0.5rem' // 8px
+      // },
       aspectRatio: {
         'square': [1, 1],
         '16/9': [16, 9],
@@ -100,9 +100,7 @@ module.exports = {
     alphaColors: ['hover', 'group-hover']
   },
   plugins: [
-    require('tailwindcss-transforms')({ '3d': false }),
     require('tailwindcss-aspect-ratio')(),
-    require('tailwindcss-transitions')(),
     require('tailwindcss-bg-alpha')()
   ]
 }
