@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const alpha = { 100: 'FF', 90: 'E6', 80: 'CC', 70: 'B3', 60: '99', 50: '80', 40: '66', 30: '4D', 20: '33', 10: '1A' };
 
 module.exports = {
   theme: {
@@ -59,10 +60,10 @@ module.exports = {
           ...defaultTheme.fontFamily.mono
         ],
       },
-      boxShadow: {
-        'outline': '0 0 0 3px rgba(102, 126, 234, 0.2)',
-        'focus': '0 0 0 3px rgba(102, 126, 234, 0.2)'
-      },
+      boxShadow: theme => ({
+        'outline': '0 0 0 3px ' + theme('colors.primary.500') + alpha[20],
+        'focus': '0 0 0 3px ' + theme('colors.primary.500') + alpha[20]
+      }),
       inset: {
         '0': 0,
         '1/2': '50%'
