@@ -1,6 +1,6 @@
 .button {
    @apply
-      transition
+      transition--default
       inline-block
       bg-primary-500
       text-white
@@ -18,7 +18,7 @@
          outline-none
          shadow-outline;
    }
-   @include hover {
+   &:hover {
       @apply
          bg-primary-600;
    }

@@ -5,7 +5,7 @@
    &__field {
       @apply
          text-gray-700
-         transition
+         transition--default
          block
          appearance-none
          w-full
@@ -17,7 +17,7 @@
          rounded
          shadow
          leading-tight;
-      @include hover {
+      &:hover {
          @apply 
             border-gray-500;
       }

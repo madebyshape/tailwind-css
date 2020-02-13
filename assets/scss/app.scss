@@ -1,10 +1,7 @@
 @tailwind base;
 @tailwind components;
-
-@import 'helpers/*';
-@import 'utilities/*';
-@import 'base';
-@import 'components/*';
-@import 'blocks/*';
-
 @tailwind utilities;
+
+@import 'utilities/*';
+@import 'components/*';
+@import 'base';
