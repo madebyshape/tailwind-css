@@ -3,12 +3,12 @@
         h1, h2, h3, h4, h5, h6 {
             @apply heading;
         }
-        h1 { @apply .heading--h1; }
-        h2 { @apply .heading--h2; }
-        h3 { @apply .heading--h3; }
-        h4 { @apply .heading--h4; }
-        h5 { @apply .heading--h5; }
-        h6 { @apply .heading--h6; }
+        h1 { @apply heading--h1; }
+        h2 { @apply heading--h2; }
+        h3 { @apply heading--h3; }
+        h4 { @apply heading--h4; }
+        h5 { @apply heading--h5; }
+        h6 { @apply heading--h6; }
         ul, ol {
             @apply 
                 list-inside
