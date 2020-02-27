@@ -86,7 +86,6 @@ module.exports = {
     }
   },
   variants: {
-    translate: ['responsive', 'hover'],
     alphaColors: ['hover', 'group-hover']
   },
   plugins: [
