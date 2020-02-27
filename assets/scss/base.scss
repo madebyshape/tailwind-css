@@ -1,17 +1,18 @@
 // Font Face
-
 // @include font-face('family', 'filename', 500, 'normal');
 
 // Body
 
-html,
+html {
+   @apply text-base;
+}
+
 body {
-   @apply
-      font-sans-primary
-      text-base
-      text-gray-800
-      antialiased;
-   text-rendering: optimizeLegibility;
+  @apply
+     font-sans-primary
+     text-gray-800
+     text-optimize-legibility
+     antialiased;
 }
 
 // Links
@@ -33,8 +34,8 @@ p {
 
 ::selection {
    @apply
-      text-white
-      bg-primary-500-alpha-100;
+      text-primary-500
+      bg-primary-100;
 }
 
 // FOUT fix

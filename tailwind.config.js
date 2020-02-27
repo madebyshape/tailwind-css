@@ -89,6 +89,7 @@ module.exports = {
     alphaColors: ['hover', 'group-hover']
   },
   plugins: [
+    require('tailwindcss-typography')(),
     require('tailwindcss-aspect-ratio')(),
     require('tailwindcss-bg-alpha')()
   ]
