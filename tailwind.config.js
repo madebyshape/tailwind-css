@@ -82,6 +82,16 @@ module.exports = {
         '1/2': '50%'
       },
       // Plugins
+      animations: {
+        'spin': {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          }
+        }
+      },
       aspectRatio: {
         'square': [1, 1],
         '16/9': [16, 9],
@@ -97,7 +107,8 @@ module.exports = {
     backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
     opacity: ['responsive', 'hover', 'group-hover'],
     translate: ['responsive', 'hover', 'group-hover'],
-    scale: ['responsive', 'hover', 'group-hover']
+    scale: ['responsive', 'hover', 'group-hover'],
+    animations: ['responsive', 'hover', 'group-hover']
   },
   plugins: [
     require('tailwindcss-typography')(),
