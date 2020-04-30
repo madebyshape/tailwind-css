@@ -18,11 +18,8 @@
 </head>
 
 <body 
-   x-data="{ 
-      viewportHeight: null
-   }"
-   x-init="viewportHeight = window.innerHeight * 0.01; document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);"
->
+   x-data="{ viewportHeight: null }"
+   x-init="viewportHeight = window.innerHeight * 0.01; document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);">
 
    <script src="dist/js/app.js"></script>
 
