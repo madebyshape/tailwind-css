@@ -93,6 +93,11 @@ module.exports = {
     }
   },
   variants: {
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    opacity: ['responsive', 'hover', 'group-hover'],
+    translate: ['responsive', 'hover', 'group-hover'],
+    scale: ['responsive', 'hover', 'group-hover']
   },
   plugins: [
     require('tailwindcss-typography')(),
