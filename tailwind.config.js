@@ -73,24 +73,16 @@ module.exports = {
         'square': [1, 1],
         '16/9': [16, 9],
         '4/3': [4, 3]
-      },
-      alphaColors: [
-        'white',
-        'black',
-        'primary.500',
-        'secondary.500'
-      ]
+      }
     },
     screens: {
       ...defaultTheme.screens,
     }
   },
   variants: {
-    alphaColors: ['hover', 'group-hover']
   },
   plugins: [
     require('tailwindcss-typography')(),
-    require('tailwindcss-aspect-ratio')(),
-    require('tailwindcss-bg-alpha')()
+    require('tailwindcss-aspect-ratio')()
   ]
 }
