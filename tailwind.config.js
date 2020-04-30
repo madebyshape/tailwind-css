@@ -94,23 +94,23 @@ module.exports = {
             lineHeight: theme('fontSize.3xl')[1]
           },
           'h2': {
-            fontSize: theme('fontSize.2xl'),
+            fontSize: theme('fontSize.2xl')[0],
             lineHeight: theme('fontSize.2xl')[1]
           },
           'h3': {
-            fontSize: theme('fontSize.xl'),
+            fontSize: theme('fontSize.xl')[0],
             lineHeight: theme('fontSize.xl')[1]
           },
           'h4': {
-            fontSize: theme('fontSize.lg'),
+            fontSize: theme('fontSize.lg')[0],
             lineHeight: theme('fontSize.lg')[1]
           },
           'h5': {
-            fontSize: theme('fontSize.md'),
+            fontSize: theme('fontSize.md')[0],
             lineHeight: theme('fontSize.md')[1]
           },
           'h6': {
-            fontSize: theme('fontSize.base'),
+            fontSize: theme('fontSize.base')[0],
             lineHeight: theme('fontSize.base')[1]
           },
           'ul,ol': {
