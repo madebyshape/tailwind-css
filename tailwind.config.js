@@ -37,19 +37,19 @@ module.exports = {
           pinterest: '#cc2127'
         }
       },
-      fontSize: {
-        'xs': ['0.75rem', '1.2'],    // 12
-        'sm': ['0.875rem', '1.2'],   // 14
-        'base': ['1rem', '1.2'],     // 16
-        'md': ['1.125rem', '1.2'],   // 18
-        'lg': ['1.25rem', '1.2'],    // 20
-        'xl': ['1.5rem', '1.2'],     // 24
-        '2xl': ['1.875rem', '1.2'],  // 30
-        '3xl': ['2.25rem', '1.2'],   // 36
-        '4xl': ['3rem', '1.2'],      // 48
-        '5xl': ['4rem', '1.2'],      // 64
-        '6xl': ['4.5rem', '1.2']     // 72
-      },
+      fontSize: theme => ({
+        'xs': ['0.75rem', theme('lineHeight.normal')],    // 12
+        'sm': ['0.875rem', theme('lineHeight.normal')],   // 14
+        'base': ['1rem', theme('lineHeight.normal')],     // 16
+        'md': ['1.125rem', theme('lineHeight.normal')],   // 18
+        'lg': ['1.25rem', theme('lineHeight.normal')],    // 20
+        'xl': ['1.5rem', theme('lineHeight.normal')],     // 24
+        '2xl': ['1.875rem', theme('lineHeight.normal')],  // 30
+        '3xl': ['2.25rem', theme('lineHeight.normal')],   // 36
+        '4xl': ['3rem', theme('lineHeight.normal')],      // 48
+        '5xl': ['4rem', theme('lineHeight.normal')],      // 64
+        '6xl': ['4.5rem', theme('lineHeight.normal')]     // 72
+      }),
       fontFamily: {
         'sans-primary': [
           ...defaultTheme.fontFamily.sans
@@ -82,6 +82,62 @@ module.exports = {
         '1/2': '50%'
       },
       // Plugins
+      textStyles: theme => ({
+        richText: {
+          fontSize: theme('fontSize.base')[0],
+          lineHeight: theme('fontSize.base')[1],
+          'h1, h2, h3, h4, h5, h6': {
+            marginBottom: theme('spacing.4')
+          },
+          'h1': {
+            fontSize: theme('fontSize.3xl')[0],
+            lineHeight: theme('fontSize.3xl')[1]
+          },
+          'h2': {
+            fontSize: theme('fontSize.2xl'),
+            lineHeight: theme('fontSize.2xl')[1]
+          },
+          'h3': {
+            fontSize: theme('fontSize.xl'),
+            lineHeight: theme('fontSize.xl')[1]
+          },
+          'h4': {
+            fontSize: theme('fontSize.lg'),
+            lineHeight: theme('fontSize.lg')[1]
+          },
+          'h5': {
+            fontSize: theme('fontSize.md'),
+            lineHeight: theme('fontSize.md')[1]
+          },
+          'h6': {
+            fontSize: theme('fontSize.base'),
+            lineHeight: theme('fontSize.base')[1]
+          },
+          'ul,ol': {
+            listStylePosition: 'inside',
+            marginBottom: theme('spacing.4')
+          },
+          'ul': {
+            listStyleType: 'disc',
+          },
+          'ol': {
+            listStyleType: 'decimal',
+          },
+          'a': {
+            textDecoration: 'underline',
+            color: theme('colors.primary.500'),
+            '&:hover': {
+              color: theme('colors.primary.600')
+            }
+          },
+          'b, strong': {
+            fontWeight: theme('fontWeight.bold'),
+          },
+          'i, em': {
+            fontStyle: 'italic',
+          }
+        }
+      }),
       animations: {
         'spin': {
           from: {
@@ -111,9 +167,9 @@ module.exports = {
     animations: ['responsive', 'hover', 'group-hover']
   },
   plugins: [
-    require('tailwindcss-typography')(),
-    require('tailwindcss-aspect-ratio')(),
-    require('tailwindcss-animations')()
+    require('tailwindcss-typography')({ componentPrefix: '' }),
+    require('tailwindcss-aspect-ratio'),
+    require('tailwindcss-animations')
   ],
   purge: []
 }

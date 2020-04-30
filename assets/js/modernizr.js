@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.8.0
+ * modernizr v3.11.0
  * Build https://modernizr.com/download?-supports-addtest-printshiv-setclasses-testprop-dontmin
  *
  * Copyright (c)
@@ -23,7 +23,7 @@
  * of control over the experience.
 */
 
-;(function(window, document, undefined){
+;(function(scriptGlobalObject, window, document, undefined){
 
   var tests = [];
   
@@ -36,7 +36,7 @@
    */
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.8.0',
+    _version: '3.11.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -356,11 +356,11 @@
    * @optionProp addTest
    * @access public
    * @function addTest
-   * @param {string|Object} feature - The string name of the feature detect, or an
+   * @param {string|object} feature - The string name of the feature detect, or an
    * object of feature detect names and test
    * @param {Function|boolean} test - Function returning true if feature is supported,
    * false if not. Otherwise a boolean representing the results of a feature detection
-   * @returns {Object} the Modernizr object to allow chaining
+   * @returns {object} the Modernizr object to allow chaining
    * @example
    *
    * The most common way of creating your own feature detects is by calling
@@ -1233,7 +1233,7 @@
    *
    * @access private
    * @function nativeTestProps
-   * @param {array} props - An array of property names
+   * @param {Array} props - An array of property names
    * @param {string} value - A string representing the value we want to check via @supports
    * @returns {boolean|undefined} A boolean when @supports exists, undefined otherwise
    */
@@ -1426,10 +1426,10 @@
   "notes": [{
     "name": "W3C Spec (The @supports rule)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#at-supports"
-  },{
+  }, {
     "name": "Related Github Issue",
     "href": "https://github.com/Modernizr/Modernizr/issues/648"
-  },{
+  }, {
     "name": "W3C Spec (The CSSSupportsRule interface)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
   }]
@@ -1456,9 +1456,9 @@
   }
 
   // Leak Modernizr namespace
-  window.Modernizr = Modernizr;
+  scriptGlobalObject.Modernizr = Modernizr;
 
 
 ;
 
-})(window, document);
+})(window, window, document);
