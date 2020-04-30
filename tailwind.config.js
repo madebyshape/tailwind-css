@@ -74,6 +74,9 @@ module.exports = {
           xl: '5rem'
         }
       },
+      height: {
+        'screen-fix': 'calc(var(--vh, 1vh) * 100);'
+      },
       inset: {
         '0': 0,
         '1/2': '50%'
