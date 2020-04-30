@@ -64,6 +64,15 @@ module.exports = {
         'outline': '0 0 0 3px ' + theme('colors.primary.500') + alpha[20],
         'focus': '0 0 0 3px ' + theme('colors.primary.500') + alpha[20]
       }),
+      container: {
+        center: true,
+        padding: {
+          default: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem'
+        }
+      },
       inset: {
         '0': 0,
         '1/2': '50%'
@@ -84,5 +93,6 @@ module.exports = {
   plugins: [
     require('tailwindcss-typography')(),
     require('tailwindcss-aspect-ratio')()
-  ]
+  ],
+  purge: []
 }
