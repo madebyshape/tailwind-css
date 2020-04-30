@@ -138,16 +138,7 @@ module.exports = {
           }
         }
       }),
-      animations: {
-        'spin': {
-          from: {
-            transform: 'rotate(0deg)',
-          },
-          to: {
-            transform: 'rotate(360deg)',
-          }
-        }
-      },
+      animations: {},
       aspectRatio: {
         'square': [1, 1],
         '16/9': [16, 9],
