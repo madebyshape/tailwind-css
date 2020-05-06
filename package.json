@@ -63,8 +63,8 @@
     "dependencies": {
         "alpinejs": "^1.12.0",
         "fg-loadcss": "^2.1.0",
-        "jquery": "^3.5.0",
-        "tailwindcss": "^1.4.0",
+        "jquery": "^3.5.1",
+        "tailwindcss": "^1.4.4",
         "tailwindcss-animations": "^2.0.0",
         "tailwindcss-aspect-ratio": "^2.0.0",
         "tailwindcss-typography": "^3.0.1"
@@ -91,7 +91,7 @@
         "gulp-sass": "^4.1.0",
         "gulp-sass-glob": "^1.1.0",
         "gulp-sourcemaps": "^2.6.5",
-        "node-sass": "^4.14.0",
+        "node-sass": "^4.14.1",
         "purgecss": "^1.4.2",
         "rev-del": "^2.0.0"
     },
