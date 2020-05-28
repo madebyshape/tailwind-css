@@ -10,16 +10,28 @@
    <title>Tailwind CSS</title>
 
    <link rel="stylesheet" href="dist/css/app.css" as="style" onload="this.rel='stylesheet'">
-   <!-- <link rel="preload" href="dist/css/app.css" as="style" onload="this.rel='stylesheet'">
+   <link rel="preload" href="dist/css/app.css" as="style" onload="this.rel='stylesheet'">
    <noscript>
       <link rel="stylesheet" href="dist/css/app.css">
-   </noscript> -->
+   </noscript>
 
 </head>
 
 <body 
-   x-data="{ viewportHeight: null }"
-   x-init="viewportHeight = window.innerHeight * 0.01; document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);">
+   x-data="app()"
+   x-init="viewportHeight()">
+
+   <script>
+      function app() {
+         return {
+            viewportHeight: null,
+            viewportHeight() {
+               viewportHeight = window.innerHeight * 0.01; 
+               document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);
+            }
+         }
+      }
+   </script>
 
    <script src="dist/js/app.js"></script>
 

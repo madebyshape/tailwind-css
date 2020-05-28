@@ -1,39 +1,28 @@
-/*
- * Variables
-*/
-
 const state = {
 	hidden: 'is-hidden',
 	visible: 'is-visible',
 	selected: 'is-selected',
 	active: 'is-active',
-	removed: 'is-removed',
-	processing: 'is-processing',
 	loading: 'is-loading'
 }
 
-/*
- * Initialise Components
-*/
+window.addEventListener(
+	'load', 
+	function() {
+		// e.g. component.init();
+	}
+);
 
-// Ready
-$(window)
-	.ready(
-		function(){
-			component.init();
-		}
-	);
+window.addEventListener(
+	'resize', 
+	function() {
+		// e.g. component.resize();
+	}
+);
 
-// Resize
-$(window)
-	.resize(
-		function(){
-		}
-	);
-
-// Resize
-$(window)
-	.scroll(
-		function(){
-		}
-	);
+window.addEventListener(
+	'scroll', 
+	function() {
+		// e.g. component.scroll();
+	}
+);
